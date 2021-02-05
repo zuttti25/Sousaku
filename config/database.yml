@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresqi
+  adapter: postgresql
   encoding: unicode
   host: db
   user: postgres
@@ -23,8 +23,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: sousaku_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: sousaku_production

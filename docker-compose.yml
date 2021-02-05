@@ -15,10 +15,13 @@ services:
     stdin_open: true
     depends_on: 
       - db
-      links: 
+    links: 
       - db
 
   db:
     image: postgres
     volumes: 
       - 'db-data:/var/lib/postgresql/data'
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
