@@ -6,6 +6,8 @@ ruby '2.5.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use sqlite3 as the database for Active Record
+# 開発・本番・テスト環境をpostgresqlに変更
+# gem 'sqlite3'
 gem 'postgresql'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -39,6 +41,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # N+1問題
+  gem "bullet"
+  # デプロイ自動化
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -55,8 +64,36 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # gem 'chromedriver-helper'
+  gem 'webdrivers'
+  # テスト
+  gem 'rspec-rails'
+  gem "factory_bot_rails"
+  gem 'faker'
+  # CircleCI使用時に必要
+  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Bootstrap及びjQuery
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
+# ログイン機能
+gem 'devise'
+# 画像投稿
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+# AmazonS3に画像をアップ
+gem 'refile-s3'
+# ページネーション
+gem 'kaminari', '~> 1.2.1'
+# デバッグ
+gem 'pry-byebug'
+# 論理削除
+gem 'paranoia'
+# 環境変数（GoogleMapで使用）
+gem 'dotenv-rails'
+# PV数をカウントする
+gem 'impressionist'
