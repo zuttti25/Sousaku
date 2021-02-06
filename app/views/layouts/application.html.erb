@@ -11,20 +11,17 @@
 </head>
 
 <body>
-  <header>
-    <nav>
-      <% if user_signed_in? %>
-      <%= link_to 'プロフィール変更', edit_user_registration_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      <% else %>
-      <%= link_to 'サインアップ', new_user_registration_path %>
-      <%= link_to 'ログイン', new_user_session_path %>
-      <% end %>
-    </nav>
-  </header>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render 'layouts/header' %>
+  <% if flash[:notice] %>
+  <div class="notification is-info">
+    <p class="notice"><%= notice %></p>
+  </div>
+  <% end %>
+  <% if flash[:alert] %>
+  <div class="notification is-info">
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
   <%= yield %>
 </body>
 
