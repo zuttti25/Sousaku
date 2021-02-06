@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Sousaku</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Sousaku</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <%= yield %>
-  </body>
+<body>
+  <%= render 'layouts/header' %>
+  <% if flash[:notice] %>
+  <div class="notification is-info">
+    <p class="notice"><%= notice %></p>
+  </div>
+  <% end %>
+  <% if flash[:alert] %>
+  <div class="notification is-info">
+    <p class="alert"><%= alert %></p>
+  </div>
+  <% end %>
+  <%= yield %>
+</body>
+
+</html>
+
 </html>
