@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  get 'posts/show'
-  get 'posts/edit'
-  get 'posts/index'
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
@@ -13,6 +10,7 @@ Rails.application.routes.draw do
   
   root 'homes#top'
   get 'homes/top'
+  resources :posts
   resources :users, only: [:show, :edit, :update] 
   #do
   # resource :relationships, only: [:create, :destroy]
