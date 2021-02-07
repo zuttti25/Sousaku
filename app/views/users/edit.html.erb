@@ -8,6 +8,10 @@
 
         <table class="table">
           <tr>
+            <th><%= f.label :プロフィール画像, class:"col-form-label"%></th>
+            <td><%= f.attachment_field :image, class:"form-control" %></td>
+          </tr>
+          <tr>
             <th><%= f.label :クリエイター名, class:"col-form-label"%></th>
             <td><%= f.text_field :name, class:"form-control" %></td>
           </tr>
