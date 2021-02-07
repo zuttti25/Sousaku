@@ -3,6 +3,10 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
 
   attachment :image
+
+  has_many :posts
+  #has_many :comments, dependent: :destroy
+  #has_many :likes, dependent: :destroy
   
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
