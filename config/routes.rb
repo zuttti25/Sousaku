@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'categories/new'
+  get 'categories/edit'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
@@ -9,7 +11,6 @@ Rails.application.routes.draw do
   end
   
   root 'homes#top'
-  get 'homes/top'
   resources :posts
   resources :users, only: [:show, :edit, :update] 
   #do

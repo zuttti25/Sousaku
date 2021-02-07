@@ -1,2 +1,15 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<div class="form-area">
+  <%= form_with model: @post, local: true do |f|%>
+  <div class="post-form">
+    <p>イメージ</p>
+    <%= f.file_field :image %>
+    <div id="image-list"></div>
+    <p>タイトル<span style="color:red;">（必須）</span></p>
+    <%= f.text_field :title, class: "shop_name" %>
+    <p>作品紹介<span style="color:red;">（必須）</span></p>
+    <%= f.text_area :product, class: "shop_explain" %>
+    <div class="post-btn">
+      <%= f.submit "投稿する", class:"btn post-submit-btn" %>
+    </div>
+    <% end %>
+  </div>

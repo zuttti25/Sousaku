@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+<div class="post-container">
+  <div class="post-left">
+    <% if post.image.blank? %>
+    <%= link_to "No image", post_path(post.id) %>
+    <% else %>
+    <%= link_to (image_tag post.image), post_path(post.id) %>
+    <% end %>
+  </div>
+  <div class="post-right">
+    <div class="post-right-top">
+      <%= link_to post.title, post_path(post.id) %>
+    </div>
+    <div class="post-right-bottom">
+      <%= link_to post.product, post_path(post.id) %>
+    </div>
+    <div class="posted-user">
+      <p>Posted by:<%= link_to post.user.name, user_path(post.user_id) %></p>
+    </div>
+  </div>
+</div>
+<% end %>

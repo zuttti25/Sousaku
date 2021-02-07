@@ -6,6 +6,7 @@
       <%= link_to 'アカウント変更', edit_user_registration_path %>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
       <%= link_to 'アトリエ', user_path(current_user) %>
+      <%= link_to '新規投稿', new_post_path(current_user) %>
       <% else %>
       <%= link_to 'サインアップ', new_user_registration_path %>
       <%= link_to 'ログイン', new_user_session_path %>
