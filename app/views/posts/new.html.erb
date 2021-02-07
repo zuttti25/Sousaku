@@ -8,8 +8,10 @@
     <%= f.text_field :title, class: "shop_name" %>
     <p>作品紹介<span style="color:red;">（必須）</span></p>
     <%= f.text_area :product, class: "shop_explain" %>
+    <p>カテゴリー<span style="color:red;">（必須）</span></p>
+    <%= f.select :category_id, Category.all.map {|category| [category.name, category.id ] } %>
     <div class="post-btn">
-      <%= f.submit "投稿する", class:"btn post-submit-btn" %>
+      <%= f.submit "投稿する", class:"btn btn-success" %>
     </div>
     <% end %>
   </div>

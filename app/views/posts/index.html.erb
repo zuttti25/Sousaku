@@ -1,22 +1,19 @@
-<% @posts.each do |post| %>
-<div class="post-container">
-  <div class="post-left">
-    <% if post.image.blank? %>
-    <%= link_to "No image", post_path(post.id) %>
-    <% else %>
-    <%= link_to (image_tag post.image), post_path(post.id) %>
+<div class="container mt-5">
+  <div class="row">
+    <h4>投稿一覧</h4>
+  </div>
+  <div class="container">
+    <% @posts.each do |post| %>
+    <div class="col-sm-3">
+      <div>
+        <%= link_to post_path(post) do %>
+        <%= attachment_image_tag post, :image, format: 'jpeg', size: "200x125" %><br>
+        <% end %>
+      </div>
+      <p class="mt-3"><%= post.title %></p>
+      <p class="mb-4"><%= post.product %></p>
+      <p class="mb-4"><%= post.category.name %></p>
+    </div>
     <% end %>
   </div>
-  <div class="post-right">
-    <div class="post-right-top">
-      <%= link_to post.title, post_path(post.id) %>
-    </div>
-    <div class="post-right-bottom">
-      <%= link_to post.product, post_path(post.id) %>
-    </div>
-    <div class="posted-user">
-      <p>Posted by:<%= link_to post.user.name, user_path(post.user_id) %></p>
-    </div>
-  </div>
 </div>
-<% end %>

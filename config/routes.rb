@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   
   root 'homes#top'
   resources :posts
+  resources :categories, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :edit, :update] 
   #do
   # resource :relationships, only: [:create, :destroy]

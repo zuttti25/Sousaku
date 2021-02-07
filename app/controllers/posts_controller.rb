@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all(created_at: :desc)
+    @posts = Post.all
   end
 
   def create
