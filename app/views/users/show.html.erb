@@ -21,9 +21,15 @@
             <h5> <%= @user.skill %> </h5>
           </div>
 
+          <% if @user.link.nil? %>
+          <div class="form-group">
+            <h5> <%= @user.link %> </h5>
+          </div>
+          <% else %>
           <div class="form-group">
             <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
           </div>
+          <% end %>
 
           <div class="actions">
             <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
