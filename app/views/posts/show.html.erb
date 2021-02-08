@@ -5,12 +5,12 @@
 
       <div class="row">
         <div class="col mt-5">
-          <%= attachment_image_tag(@post, :image, :fill, 300, 200, fallback:"no_image.post.jpg") %>
+          <%= attachment_image_tag @post, :image, :fill, 300, 200, fallback:"no_image.post.jpg" %>
         </div>
 
         <div class="col">
           <div class="form-group">
-            <h5>作品名<%= @post.title %></h5>
+            <h5>作品名 <p class="ml-5"><%= @post.title %></p>
           </div>
 
           <div class="form-group">
@@ -33,6 +33,10 @@
 
           <div id="like-btn-<%= @post.id %>">
             <%= render 'likes/like', post: @post %>
+          </div>
+
+          <div>
+            <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
           </div>
 
           <div class="actions">
