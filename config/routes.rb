@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
 
-  get 'categories/new'
-  get 'categories/edit'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   
-  root 'homes#top'
-  resources :posts
+  resources :posts do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :categories, only: [:new, :create, :edit, :update, :destroy]
   resources :users, only: [:show, :edit, :update] 
+  root 'homes#top'
   #do
   # resource :relationships, only: [:create, :destroy]
     # get :follows, on: :member
@@ -23,3 +24,4 @@ Rails.application.routes.draw do
   #resources :messages, only: [:create]
   #resources :notifications, only: [:index, :destroy]
 end
+  

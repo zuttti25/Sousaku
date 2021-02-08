@@ -31,6 +31,10 @@
             </h5>
           </div>
 
+          <div id="like-btn-<%= @post.id %>">
+            <%= render 'likes/like', post: @post %>
+          </div>
+
           <div class="actions">
             <% if @post.user == current_user %>
             <%= link_to "編集する", edit_post_path(@post), class:"btn btn-success" %>
