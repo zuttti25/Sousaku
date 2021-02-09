@@ -14,3 +14,30 @@
  *= require_self
  */
  @import "bootstrap";
+
+ body {
+  height: auto;
+  font-family: 'Lato','游ゴシック体','YuGothic','游ゴシック','Yu Gothic','sans-serif','sans-serif';
+}
+
+ header {
+  background: white;
+  width: 100%;
+  height: 120px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+
+ .logo-img {
+  height: 120px;
+  width: 220px;
+  text-align: center;
+}
+
+.main {
+  width: 70%;
+  padding-top: 170px;
+  margin-right: auto;
+  margin-left: auto;
+}
