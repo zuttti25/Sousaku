@@ -2,14 +2,20 @@
 
 <h4>参加者</h4>
 <% @entries.each do |e| %>
-<h5><strong><a href="/users/<%= e.user.id %>"><%= e.user.email%>さん</a></strong></h5>
+<%= link_to user_path(e.user.id) do %>
+<%= e.user.name %>さん
+<% end %>
 <% end %>
 
 <hr>
+
 <% if @messages.present? %>
 <% @messages.each do |m| %>
 <strong><%= m.message %></strong>
-<small>by <strong><a href="/users/<%= m.user_id %>"><%= m.user.email %>さん</a></strong></small>
+<%= link_to user_path(m.user.id) do %>
+<small>by<%= m.user.name %>さん</small>
+<% end %>
+
 <hr>
 <% end %>
 <% else %>
@@ -23,4 +29,4 @@
 <%= f.submit "投稿する" %>
 <% end %>
 
-<%= link_to "ユーザー一覧に戻る", user_path %>
+<%= link_to "ユーザー詳細に戻る", user_path %>
