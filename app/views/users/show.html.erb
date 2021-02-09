@@ -31,6 +31,8 @@
           </div>
           <% end %>
 
+          <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomid: @roomid, room: @room, entry: @entry %>
+
           <%= render 'relationships/follow_button', user: @user %>
           <h5>followings：<%= link_to @user.followings.count, followings_path(@user) %></h5>
           <h5>followers：<%= link_to @user.followers.count, followers_path(@user) %></h5>
