@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   get "/users/:id/relationships/followings", to: 'relationships#followers', as: 'followers'
   resources :messages, only:  [:create]
   resources :rooms, only: [:create, :show, :index]
+  resources :notifications, only: [:index, :destroy]
 
   #resources :rooms, only: [:show, :index]
   #resources :messages, only: [:create]
-  #resources :notifications, only: [:index, :destroy]
   root 'homes#top'
 end
