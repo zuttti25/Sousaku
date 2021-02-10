@@ -4,10 +4,10 @@
 <%= link_to "チャットへ", room_path(roomId), class:"btn btn-primary" %>
 <% else %>
 <%= form_with model: room do |f| %>
-<%= fields_with model: entry do |e| %>
+<%= fields model: entry do |e| %>
 <%= e.hidden_field :user_id, :value=> user.id %>
 <% end %>
-<%= f.submit 'チャットを始める', class: 'btn btn-primary btn-block' %>
+<%= f.submit 'チャットを始める', class: 'btn btn-primary' %>
 <% end %>
 <% end %>
 <% end %>

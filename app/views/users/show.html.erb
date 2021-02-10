@@ -32,14 +32,13 @@
           <% end %>
 
           <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
-
           <%= render 'relationships/follow_button', user: @user %>
-          <h5>followings：<%= link_to @user.followings.count, followings_path(@user) %></h5>
-          <h5>followers：<%= link_to @user.followers.count, followers_path(@user) %></h5>
-          <div class="actions">
-            <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
-          </div>
 
+          <h5>フォロー中：<%= link_to @user.followings.count, followings_path(@user) %></h5>
+          <h5>フォロワー：<%= link_to @user.followers.count, followers_path(@user) %></h5>
+          <% if @user == current_user %>
+          <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
+          <% end %>
         </div>
       </div>
     </div>
