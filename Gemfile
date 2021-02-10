@@ -97,3 +97,5 @@ gem 'paranoia'
 gem 'dotenv-rails'
 # PV数をカウントする
 gem 'impressionist'
+# 投稿したURLにaタグ属性を追加する
+gem 'rinku'
