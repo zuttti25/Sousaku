@@ -1,0 +1,37 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="Menu">アトリエ改造</h3>
+      <div class="row">
+
+        <%= form_with model:@user, local: true do |f| %>
+
+        <table class="table">
+          <tr>
+            <th><%= f.label :プロフィール画像, class:"col-form-label"%></th>
+            <td><%= f.attachment_field :image, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :クリエイター名, class:"col-form-label"%></th>
+            <td><%= f.text_field :name, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :自己紹介, class:"col-form-label" %></th>
+            <td><%= f.text_area :introduction, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :スキル, class:"col-form-label" %></th>
+            <td><%= f.text_field :skill, class:"form-control" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :利用しているWEBサービスのLINK, class:"col-form-label" %></th>
+            <td><%= f.text_field :link, class:"form-control" %></td>
+            <td><%= f.submit "変更内容を保存", class: "btn btn-success form-control" %></td>
+          </tr>
+
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

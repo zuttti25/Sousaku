@@ -1,14 +1,46 @@
 <header>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar">
     <div class="container">
-      <a class="navbar-brand text-dark" href="/">創索-sousaku-</a>
+
+      <%= link_to root_path do %>
+      <%= image_tag 'logo.jpeg', class:"logo-img mr-2" %>
+      <% end %>
+
       <% if user_signed_in? %>
-      <%= link_to 'プロフィール変更', edit_user_registration_path %>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      <%= link_to edit_user_registration_path do %>
+      <%= image_tag 'Setting.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to destroy_user_session_path, method: :delete do %>
+      <%= image_tag 'logout.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to notifications_path do %>
+      <%= image_tag 'Bell.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to user_path(current_user) do %>
+      <%= image_tag 'Face.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to new_post_path(current_user) do %>
+      <%= image_tag 'Pen.jpeg', :size =>'50x50' %>
+      <% end %>
+
       <% else %>
-      <%= link_to 'サインアップ', new_user_registration_path %>
-      <%= link_to 'ログイン', new_user_session_path %>
-      <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+
+      <%= link_to new_user_registration_path do %>
+      <%= image_tag 'sing_up.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to new_user_session_path do %>
+      <%= image_tag 'login.jpeg', :size =>'50x50' %>
+      <% end %>
+
+      <%= link_to users_guest_sign_in_path, method: :post do %>
+      <%= image_tag 'Guest.jpeg', :size =>'50x50' %>
+      <% end %>
+
       <% end %>
     </div>
   </nav>
