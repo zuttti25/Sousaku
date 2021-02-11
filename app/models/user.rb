@@ -5,6 +5,7 @@ class User < ApplicationRecord
   attachment :image
 
   has_many :posts
+  has_many :borde
   has_many :comments, dependent: :destroy
   # いいね機能のアソシエーション
   has_many :likes, dependent: :destroy

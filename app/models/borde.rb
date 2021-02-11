@@ -1,2 +1,0 @@
-class Borde < ApplicationRecord
-end
