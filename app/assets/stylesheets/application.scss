@@ -15,11 +15,6 @@
  */
  @import "bootstrap";
 
- body {
-  height: auto;
-  font-family: 'Lato','游ゴシック体','YuGothic','游ゴシック','Yu Gothic','sans-serif','sans-serif';
-}
-
  header {
   background: white;
   width: 100%;
@@ -40,4 +35,9 @@
   padding-top: 170px;
   margin-right: auto;
   margin-left: auto;
+}
+
+hr{
+  background-color:#77FFFF;
+  height:1px;
 }

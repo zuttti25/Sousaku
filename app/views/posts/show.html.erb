@@ -43,6 +43,10 @@
             <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
           </div>
 
+          <div>
+            PV数：<%=  @post.impressionist_count %>
+          </div>
+
           <div class="actions">
             <% if @post.user == current_user %>
             <%= link_to "編集する", edit_post_path(@post), class:"btn btn-success" %>

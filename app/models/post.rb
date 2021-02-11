@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
 
 attachment :image
+# PV数を計測
+is_impressionable counter_cache: true
 
 belongs_to :user
 belongs_to :category
