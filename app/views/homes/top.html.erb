@@ -1,30 +1,47 @@
-<table class="table table-bordered">
-  <h1>掲示板
-    <% if user_signed_in? %>
-    <font size="4"><%= link_to "募集する✎", new_board_path(current_user) %></font>
-    <% end %>
-  </h1>
-  <thead>
-    <tr class="table-active">
-      <th style="width:10%;">タイトル</th>
-      <th style="width:10%;">投稿者</th>
-      <th style="width:30%;">募集要項</th>
-      <th style="width:30%;"></th>
-    </tr>
-  </thead>
-  <tbody>
+  <table class="table table-bordered">
+    <h1>掲示板
+      <% if user_signed_in? %>
+      <font size="4"><%= link_to "募集する✎", new_board_path(current_user) %></font>
+      <% end %>
+    </h1>
+    <thead>
+      <tr class="table-active">
+        <th style="width:10%;">タイトル</th>
+        <th style="width:10%;">投稿者</th>
+        <th style="width:30%;">募集要項</th>
+        <th style="width:30%;"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @boards.each do |board| %> <tr>
+        <td><%= board.title %></td>
+        <td><%= board.user.name %></td>
+        <td><%= board.essential %></td>
+        <td class="text-center">
+          <%= link_to "詳 細 へ", board_path(board), class:"btn btn-primary" %>
+          <% if board.user == current_user %>
+          <%= link_to "編集する", edit_board_path(board), class:"btn btn-success" %>
+          <%= link_to "削除する", board_path(board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-    <% @boards.each do |board| %> <tr>
-      <td><%= board.title %></td>
-      <td><%= board.user.name %></td>
-      <td><%= board.essential %></td>
-      <td class="text-center">
-        <%= link_to "詳 細 へ", board_path(board), class:"btn btn-primary" %>
-        <% if board.user == current_user %>
-        <%= link_to "編集する", edit_board_path(board), class:"btn btn-success" %>
-        <%= link_to "削除する", board_path(board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
-        <% end %>
-      </td>
-    </tr>
+  <h1>新着作品</h1>
+  <% @active_posts.each.with_index(1) do |post| %>
+  <div class="new-post">
+    <%= link_to user_path(post) do %>
+    <%= attachment_image_tag post.user, :image, :fill, 50, 50, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
     <% end %>
-  </tbody>
+
+    <%= link_to post_path(post) do %>
+    <% post.title %>
+    <% end %>
+
+    クリエイター名：<%= post.user.name  %>
+    いいね数：<%= post.likes.count %>
+    PV数：<%= post.impressions_count %>
+    <% end %>
+  </div>
