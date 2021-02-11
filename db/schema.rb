@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_053604) do
 
   create_table "boards", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "title", null: false
     t.text "essential", null: false
     t.text "requirement", null: false
     t.string "address", null: false
