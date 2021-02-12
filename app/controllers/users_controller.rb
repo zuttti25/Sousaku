@@ -34,6 +34,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @searchs = params[:option]
+    if @searchs == "1"
+      @users = User.search(params[:search],  @searchs)
+    elsif @searchs == "2"
+      @posts = Post.search(params[:search],  @searchs)
+    else @searchs == "3"
+      @tags = Tag.search(params[:search],  @searchs)
+    end
+
+  end
+
   protected
 
   def user_params

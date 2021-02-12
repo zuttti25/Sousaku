@@ -1,28 +1,37 @@
-<div class="container mt-5">
+<div class="container">
+
+  <h4 class="my-3">タグリスト</h4>
+
   <div class="row">
-    <h4>投稿一覧</h4>
-  </div>
-  <div class="container">
-    <% @posts.each do |post| %>
-    <div class="col-sm-3">
-      <div>
-        <%= link_to post_path(post) do %>
-        <%= attachment_image_tag post, :image, format: 'jpeg', size: "200x125", fallback:"no_image.post.jpg" %> <br>
+
+    <% @tag_list.each do |list| %>
+    <div class="col-auto">
+      <p><%= link_to posts_path(tag_id:list.id), class: "btn btn-secondary" do %>
+        <%= list.tag_name %><%= list.posts.count %>
         <% end %>
-      </div>
-      <p class="mt-3"><%= post.title %></p>
+      </p>
+    </div>
+    <% end %>
+
+  </div>
+
+  <h4 class="my-3">投稿一覧</h4>
+  <div class="row">
+
+    <% @posts.each do |post| %>
+    <div class="col-3">
+      <%= link_to post_path(post) do %>
+      <%= attachment_image_tag post, :image, format: 'jpeg', size: "200x125", fallback:"no_image.post.jpg" %> <br>
+      <% end %>
+      <p><%= post.title %></p>
       <p>いいね件数: <%= post.likes.count %></p>
       <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
       <% post.tags.each do |tag| %>
       <p><%= link_to tag.tag_name, posts_path(tag_id: tag.id) %></p>
       <% end %>
-      <% end %>
-
-      <p>タグリスト</p>
-      <% @tag_list.each do |list| %>
-      <p><%=link_to list.tag_name,posts_path(tag_id:list.id)%><%= list.posts.count %></p>
-      <% end %>
-
     </div>
+    <% end %>
+
   </div>
+
 </div>

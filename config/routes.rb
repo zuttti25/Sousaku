@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   resources :messages, only:  [:create]
   resources :rooms, only: [:create, :show, :index]
   resources :notifications, only: [:index, :destroy]
-
-  #resources :rooms, only: [:show, :index]
-  #resources :messages, only: [:create]
+  get "search" => "users#search"
   root 'homes#top'
 end

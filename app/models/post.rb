@@ -75,4 +75,13 @@ def save_posts(tags)
   end
 end
 
+#検索のインスタンスメソッド
+def Post.search(search, searchs)
+  if searchs == "2"
+     Post.where(['title LIKE ?', "%#{search}%"])
+  else
+     Post.all
+  end
+end
+
 end
