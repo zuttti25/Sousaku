@@ -1,17 +1,17 @@
 <div class="container">
-  <div class="row mt-5 text-center">
-    <div class="col text-center">
+  <div class="row text-center">
+    <div class="col">
+
 
       <div class="row">
-        <div class="col mt-5">
-          <%= attachment_image_tag @user, :image, :fill, 200, 200, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
-        </div>
+
 
         <div class="col">
+          <%= attachment_image_tag @user, :image, format: 'jpeg', size: "225x175", fallback:"no_image.png", class: "rounded-circle" %>
+        </div>
 
-          <div class="form-group">
-            <h2> <%= @user.name %> </h2>
-          </div>
+
+        <div class="col">
 
           <div class="form-group">
             <h5> <%= @user.introduction %> </h5>
@@ -30,16 +30,38 @@
             <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
           </div>
           <% end %>
+          <h5>
+            フォロー中：<%= link_to @user.followings.count, followings_path(@user) %>
+            フォロワー：<%= link_to @user.followers.count, followers_path(@user) %>
+          </h5>
+        </div>
 
+
+        <div class="col">
+          <div class="form-group">
+            <h2> <%= @user.name %> </h2>
+          </div>
           <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
           <%= render 'relationships/follow_button', user: @user %>
-
-          <h5>フォロー中：<%= link_to @user.followings.count, followings_path(@user) %></h5>
-          <h5>フォロワー：<%= link_to @user.followers.count, followers_path(@user) %></h5>
           <% if @user == current_user %>
           <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
           <% end %>
         </div>
+
+
       </div>
+
+
       <hr>
+
+      <div class="row">
+        <div clas="col">
+
+          自分の投稿といいねした作品一覧の表示
+
+        </div>
+      </div>
+
     </div>
+  </div>
+</div>

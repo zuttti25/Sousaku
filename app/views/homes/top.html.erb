@@ -37,7 +37,7 @@
 <% @active_posts.each.with_index(1) do |post| %>
 <div class="new-post">
   <%= link_to user_path(post) do %>
-  <%= attachment_image_tag post.user, :image, :fill, 50, 50, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
+  <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
   <% end %>
 
   <%= link_to post_path(post) do %>

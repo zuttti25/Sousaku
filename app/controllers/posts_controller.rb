@@ -32,24 +32,29 @@ class PostsController < ApplicationController
       @posts = Post.order(created_at: "DESC").page(params[:page]).per(10)
       @posts_side = Post.order(created_at: "DESC")
       @like = Like.new
-      end
+    end
       respond_to do |format|
         format.html
         format.rss { render :layout => false }
       end
-    end
+  end
 
 
   def create
     @post = Post.new(post_params)
     tag_list = params[:post][:tag_name].split(",")
-    if @post.save
+    respond_to do |format|
+      if @post.save
       @post.save_posts(tag_list)
-      redirect_to posts_path
-    else
-      render :new
+        format.html { redirect_to @post, notice: '投稿しました' }
+        format.json { render :show, location: @post }
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors }
+      end
     end
   end
+
 
   def update
     post = Post.find(params[:id])
@@ -74,5 +79,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:image, :title, :product, :link).merge(user_id: current_user.id)
   end
-
 end

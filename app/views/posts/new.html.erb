@@ -3,27 +3,27 @@
   <div class="post-form">
 
     <p>
-      <%= f.label :"イメージ  " %>
+      <%= f.label :"イメージ " %>
       <%= f.file_field :image %>
     </p>
 
     <p>
-      <%= f.label :"タイトル  " %>
+      <%= f.label :"タイトル " %>
       <%= f.text_field :title %>
     </p>
 
     <p>
-      <%= f.label :"作品紹介  " %>
+      <%= f.label :"作品紹介 " %>
       <%= f.text_area :product %>
     </p>
 
     <p>
-      <%= f.label :"リンク先  " %>
+      <%= f.label :"リンク先 " %>
       <%= f.text_field :link %>
     </p>
 
     <p>
-      <%= f.label :"タグ      " %>
+      <%= f.label :"タグ" %>
       <%= f.text_field :tag_name, value: @tag_list %>
     </p>
 
