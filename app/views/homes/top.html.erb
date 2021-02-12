@@ -1,12 +1,15 @@
-  <table class="table table-bordered">
+<div class="box1">
+  <table style="border:none;">
     <h1>掲示板
       <% if user_signed_in? %>
-      <font size="4"><%= link_to "募集する✎", new_board_path(current_user) %></font>
+      <%= link_to new_board_path(current_user) do %>
+      <%= image_tag 'sing_up.jpeg', :size =>'50x50' %>
+      <% end %>
       <% end %>
     </h1>
     <thead>
-      <tr class="table-active">
-        <th style="width:10%;">タイトル</th>
+      <tr>
+        <th style=" width:10%;">タイトル</th>
         <th style="width:10%;">投稿者</th>
         <th style="width:30%;">募集要項</th>
         <th style="width:30%;"></th>
@@ -28,20 +31,21 @@
       <% end %>
     </tbody>
   </table>
+</div>
 
-  <h1>新着作品</h1>
-  <% @active_posts.each.with_index(1) do |post| %>
-  <div class="new-post">
-    <%= link_to user_path(post) do %>
-    <%= attachment_image_tag post.user, :image, :fill, 50, 50, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
-    <% end %>
+<h1>新着作品</h1>
+<% @active_posts.each.with_index(1) do |post| %>
+<div class="new-post">
+  <%= link_to user_path(post) do %>
+  <%= attachment_image_tag post.user, :image, :fill, 50, 50, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
+  <% end %>
 
-    <%= link_to post_path(post) do %>
-    <% post.title %>
-    <% end %>
+  <%= link_to post_path(post) do %>
+  <% post.title %>
+  <% end %>
 
-    クリエイター名：<%= post.user.name  %>
-    いいね数：<%= post.likes.count %>
-    PV数：<%= post.impressions_count %>
-    <% end %>
-  </div>
+  クリエイター名：<%= post.user.name  %>
+  いいね数：<%= post.likes.count %>
+  PV数：<%= post.impressions_count %>
+  <% end %>
+</div>
