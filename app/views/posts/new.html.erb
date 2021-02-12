@@ -2,20 +2,30 @@
   <%= form_with model: @post, local: true do |f|%>
   <div class="post-form">
 
-    <p>イメージ</p>
-    <%= f.file_field :image %>
+    <p>
+      <%= f.label :"イメージ  " %>
+      <%= f.file_field :image %>
+    </p>
 
-    <p>タイトル<span style="color:red;">（必須）</span></p>
-    <%= f.text_field :title %>
+    <p>
+      <%= f.label :"タイトル  " %>
+      <%= f.text_field :title %>
+    </p>
 
-    <p>作品紹介<span style="color:red;">（必須）</span></p>
-    <%= f.text_area :product %>
+    <p>
+      <%= f.label :"作品紹介  " %>
+      <%= f.text_area :product %>
+    </p>
 
-    <p>LINK</p>
-    <%= f.text_field :link %>
+    <p>
+      <%= f.label :"リンク先  " %>
+      <%= f.text_field :link %>
+    </p>
 
-    <p>カテゴリー<span style="color:red;">（必須）</span></p>
-    <%= f.select :category_id, Category.all.map {|category| [category.name, category.id ] } %>
+    <p>
+      <%= f.label :"タグ      " %>
+      <%= f.text_field :tag_name, value: @tag_list %>
+    </p>
 
     <div class="post-btn">
       <%= f.submit "投稿する", class:"btn btn-success" %>

@@ -14,7 +14,16 @@
       <p class="mb-4"><%= post.category.name %></p>
       <p>いいね件数: <%= post.likes.count %></p>
       <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+      <% post.tags.each do |tag| %>
+      <p><%= link_to tag.tag_name, posts_path(tag_id: tag.id) %></p>
+      <% end %>
+      <% end %>
+
+      <p>タグリスト</p>
+      <% @tag_list.each do |list| %>
+      <p><%=link_to list.tag_name,posts_path(tag_id:list.id)%><%= list.posts.count %></p>
+      <% end %>
+
     </div>
-    <% end %>
   </div>
 </div>

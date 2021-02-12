@@ -30,11 +30,6 @@
             </h5>
           </div>
 
-          <div class="form-group">
-            <h5>ジャンル <p class="ml-5"><%= @post.category.name %></p>
-            </h5>
-          </div>
-
           <div id="like-btn-<%= @post.id %>">
             <%= render 'likes/like', post: @post %>
           </div>

@@ -10,9 +10,11 @@ has_many :likes, dependent: :destroy
 has_many :liked_users, through: :likes, source: :user, dependent: :destroy
 has_many :comments, dependent: :destroy
 has_many :notifications, dependent: :destroy
+has_many :tagmaps, dependent: :destroy
+has_many :tags, through: :tagmaps
 
 
-#いいね、コメントのインスタンスメソッド
+#いいねのインスタンスメソッド
 def create_notification_like!(current_user)
   # すでに「いいね」されているか検索
   temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
@@ -31,6 +33,7 @@ def create_notification_like!(current_user)
   end
 end
 
+#コメントのインスタンスメソッド
 def create_notification_comment!(current_user, comment_id)
   # 自分以外にコメントしている人をすべて取得し、全員に通知を送る
   temp_ids = Comment.select(:user_id).where(post_id: id).where.not(user_id: current_user.id).distinct
@@ -56,5 +59,21 @@ def save_notification_comment!(current_user, comment_id, visited_id)
   notification.save if notification.valid?
 end
 
+# タグのインスタンスメソッド
+def save_posts(tags)
+  current_tags = self.tags.pluck(:tag_name) unless self.tags.nil?
+
+  old_tags = current_tags - tags # Destroy
+  new_tags = tags - current_tags # Create
+
+  old_tags.each do |old_name|
+    self.tags.delete Tag.find_by(tag_name:old_name)
+  end
+
+  new_tags.each do |new_name|
+    post_tag = Tag.find_or_create_by(tag_name:new_name)
+    self.tags << post_tag
+  end
+end
 
 end
