@@ -12,6 +12,10 @@
 </head>
 
 <body>
+
+  <div id="board-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+  <div id="post-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+
   <%= render 'layouts/header' %>
   <% if flash[:notice] %>
   <div class="notification is-info">
@@ -24,6 +28,7 @@
   </div>
   <% end %>
   <main class="main">
+
     <%= yield %>
   </main>
 </body>

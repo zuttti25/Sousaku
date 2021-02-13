@@ -43,18 +43,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     tag_list = params[:post][:tag_name].split(",")
-    respond_to do |format|
       if @post.save
       @post.save_posts(tag_list)
-        format.html { redirect_to @post, notice: '投稿しました' }
-        format.json { render :show, location: @post }
+      redirect_to post_path(@post)
       else
-        format.html { render :new }
-        format.json { render json: @post.errors }
+        render :new
       end
     end
-  end
-
+  
 
   def update
     post = Post.find(params[:id])
