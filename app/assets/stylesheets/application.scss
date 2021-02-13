@@ -54,3 +54,11 @@ hr{
   text-shadow:1px 0 5px black;
   font-weight: 900;
  }
+
+ table{
+  white-space: nowrap;
+}
+// kaminariのページネーションを中央寄せ
+.pagination {
+  justify-content: center;
+}

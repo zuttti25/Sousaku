@@ -13,8 +13,9 @@
 
           <div class="form-group">
             <h5>
-              <% link_to user_path(@user) do %>
-              投稿者<p class="ml-5"><%= @board.user.name %></p>
+              投稿者
+              <%= link_to user_path(@board.user) do %>
+              <p class="ml-5"><%= @board.user.name %></p>
               <% end %>
           </div>
 

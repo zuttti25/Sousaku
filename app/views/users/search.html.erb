@@ -51,6 +51,20 @@
     <% end %>
   </div>
 
+  <% elsif @searchs == "4" %>
+  <h1>掲示板の
+    <small>の検索結果</small>
+  </h1>
+  <div class="row">
+    <% @boards.each do |board| %>
+    <div class="col-auto">
+      <%= link_to board_path(board), class: "btn btn-secondary" do %>
+      <% board.title %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
   <% else %>
   該当しませんでした
   <% end %>

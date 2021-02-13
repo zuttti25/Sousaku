@@ -40,8 +40,10 @@ class UsersController < ApplicationController
       @users = User.search(params[:search],  @searchs)
     elsif @searchs == "2"
       @posts = Post.search(params[:search],  @searchs)
-    else @searchs == "3"
+    elsif @searchs == "3"
       @tags = Tag.search(params[:search],  @searchs)
+    else @searchs == "4"
+      @boards = Board.search(params[:search],  @searchs)
     end
 
   end
