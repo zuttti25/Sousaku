@@ -13,13 +13,10 @@ class BoardsController < ApplicationController
     end
   
     def create
-      @board = Board.new(board_params)
-      if @board.save
-        redirect_to root_path
-      else
-        render :new
-      end
+      Board.create(board_params)
+      @boards = Board.page(params[:page]).per(5).order("created_at DESC")
     end
+
   
     def update
       board = Board.find(params[:id])

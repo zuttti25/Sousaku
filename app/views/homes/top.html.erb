@@ -1,65 +1,34 @@
-  <div class="container">
+          <div class="container">
 
-    <div class="row-auto">
-      <div class="box1">
-        <table style="border:none;">
+            <div id="board-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+            <div class="row-auto">
 
-          <h1>掲示板
-            <% if user_signed_in? %>
-            <%= link_to "記入", new_board_path(current_user), class: "btn btn-primary" %>
-            <% end %>
-          </h1>
+              <div class="boards">
+                <%= render 'boards/board', boards: @boards %>
+              </div>
 
-          <thead>
-            <tr>
-              <th style=" width:10%;">タイトル</th>
-              <th style="width:10%;">投稿者</th>
-              <th style="width:30%;">募集要項</th>
-              <th style="width:30%;"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @boards.each do |board| %> <tr>
-              <td><%= board.title %></td>
-              <td><%= board.user.name %></td>
-              <td><%= board.essential.truncate(10) %></td>
-              <td class="text-center">
-                <%= link_to "詳 細 へ", board_path(board), class:"btn btn-info" %>
-                <% if board.user == current_user %>
-                <%= link_to "編集する", edit_board_path(board), class:"btn btn-success" %>
-                <%= link_to "削除する", board_path(board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+              <h1 class="my-5">新着作品</h1>
+              <div class=" row">
+                <% @active_posts.each.with_index(1) do |post| %>
+                <div class="col-3">
+                  <p>
+                    <%= link_to user_path(post) do %>
+                    <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
+                    <% end %>
+                  </p>
+
+                  <p>
+                    <%= link_to post_path(post) do %>
+                    <% post.title %>
+                    <% end %>
+                  </p>
+
+                  <p>クリエイター名：<%= post.user.name %></p>
+                  <p> いいね数：<%= post.likes.count %></p>
+                  <p> PV数：<%= post.impressions_count %></p>
+                </div>
                 <% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
-        <%= paginate @boards %>
-      </div>
-    </div>
+              </div>
+            </div>
 
-    <h1 class="my-5">新着作品</h1>
-    <div class=" row">
-      <% @active_posts.each.with_index(1) do |post| %>
-      <div class="col-3">
-        <p>
-          <%= link_to user_path(post) do %>
-          <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
-          <% end %>
-        </p>
-
-        <p>
-          <%= link_to post_path(post) do %>
-          <% post.title %>
-          <% end %>
-        </p>
-
-        <p>クリエイター名：<%= post.user.name %></p>
-        <p> いいね数：<%= post.likes.count %></p>
-        <p> PV数：<%= post.impressions_count %></p>
-      </div>
-      <% end %>
-    </div>
-  </div>
-
-  </div>
+          </div>

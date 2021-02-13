@@ -1,9 +1,7 @@
 class HomesController < ApplicationController
-  PER = 5
 
   def top
-    #boards = Board.all
-    @boards = Board.page(params[:page]).per(PER)
+    @boards = Board.page(params[:page]).per(5).order("created_at DESC")
     @active_posts = Post.limit(8).order("created_at DESC")
   end
 
