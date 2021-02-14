@@ -8,8 +8,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @like = Like.new
-    @comment = Comment.new
     #impressionist(@post, nil, unique: [:session_hash])
     # PV数を計る
     impressionist(@post, nil, unique: [:ip_address])

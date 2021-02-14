@@ -34,7 +34,7 @@
             <%= render 'likes/like', post: @post %>
           </div>
 
-          <div>
+          <div id="comment-form-<%= @post.id %>">
             <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
           </div>
 
