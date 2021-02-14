@@ -1,0 +1,17 @@
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <h3 class="text-center">通知</h3>
+      <hr>
+      <% if @notifications.exists? %>
+      <div class="users-index">
+        <%= render @notifications %>
+      </div>
+      <% else %>
+      <p>通知はありません</p>
+      <% end %>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>

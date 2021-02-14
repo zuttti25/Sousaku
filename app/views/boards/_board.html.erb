@@ -21,7 +21,7 @@
          <td><%= board.user.name %></td>
          <td><%= board.essential.truncate(15) %></td>
          <td class="text-center">
-           <%= link_to "詳 細 へ", board_path(board), class:"btn btn-info" %>
+           <%= link_to "詳 細 へ", board_path(board),remote: true, class:"btn btn-info" %>
            <% if board.user == current_user %>
            <%= link_to "編集する", edit_board_path(board), class:"btn btn-success" %>
            <%= link_to "削除する", board_path(board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
