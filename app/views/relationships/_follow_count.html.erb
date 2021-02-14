@@ -1,0 +1,4 @@
+<h5>
+  フォロー中：<%= link_to @user.followings.count, followings_path(@user) %>
+  フォロワー：<%= link_to @user.followers.count, followers_path(@user) %>
+</h5>

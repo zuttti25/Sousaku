@@ -30,10 +30,10 @@
             <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
           </div>
           <% end %>
-          <h5>
-            フォロー中：<%= link_to @user.followings.count, followings_path(@user) %>
-            フォロワー：<%= link_to @user.followers.count, followers_path(@user) %>
-          </h5>
+
+          <div class="follow_count">
+            <%= render "relationships/follow_count" , user: @user %>
+          </div>
         </div>
 
 
@@ -41,8 +41,15 @@
           <div class="form-group">
             <h2> <%= @user.name %> </h2>
           </div>
-          <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
-          <%= render 'relationships/follow_button', user: @user %>
+
+          <div>
+            <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
+          </div>
+
+          <div>
+            <%= render 'relationships/follow_button', user: @user %>
+          </div>
+
           <% if @user == current_user %>
           <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
           <% end %>
