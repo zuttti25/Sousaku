@@ -4,8 +4,6 @@
 
 
       <div class="row">
-
-
         <div class="col">
           <%= attachment_image_tag @user, :image, format: 'jpeg', size: "225x175", fallback:"no_image.png", class: "rounded-circle" %>
         </div>
@@ -61,13 +59,10 @@
 
       <hr>
 
-      <div class="row">
-        <div clas="col">
-
-          自分の投稿といいねした作品一覧の表示
-
-        </div>
+      <div class="my_post">
+        <%= render "users/my_post", my_post: @my_post %>
       </div>
+
 
     </div>
   </div>

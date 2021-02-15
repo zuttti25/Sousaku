@@ -52,11 +52,11 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    tag_list = params[:blog][:tag_name].split(",")
+    tag_list = params[:post][:tag_name].split(",")
     if post.update(post_params)
       post.save_posts(tag_list)
-      redirect_to posts_path
       flash[:notice] = "更新しました。"
+      redirect_to post_path(post)
     else
       render :edit
     end
