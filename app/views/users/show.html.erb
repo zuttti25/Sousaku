@@ -49,7 +49,7 @@
           </div>
 
           <% if @user == current_user %>
-          <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success" %>
+          <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success", remote: true %>
           <% end %>
         </div>
 
