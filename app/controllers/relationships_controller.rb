@@ -6,8 +6,7 @@
         following.save
         flash[:success] = 'ユーザーをフォローしました'
         @user.create_notification_follow!(current_user)
-        #redirect_back(fallback_location: :back)
-        #redirect_back(fallback_location: :back)
+    
     end
     
     def destroy
@@ -15,7 +14,6 @@
       following = current_user.unfollow(@user)
         following.destroy
         flash[:success] = 'ユーザーのフォローを解除しました'
-        #redirect_back(fallback_location: :back)
     end
 
     def followings

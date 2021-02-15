@@ -13,9 +13,6 @@
       <% end %>
 
       <% if user_signed_in? %>
-      <%= link_to edit_user_registration_path do %>
-      <%= image_tag 'Setting.jpeg', :size =>'40x40' %>
-      <% end %>
 
       <%= link_to destroy_user_session_path, method: :delete do %>
       <%= image_tag 'logout.jpeg', :size =>'40x40' %>
