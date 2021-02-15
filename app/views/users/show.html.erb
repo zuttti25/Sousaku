@@ -2,12 +2,10 @@
   <div class="row text-center">
     <div class="col">
 
-
       <div class="row">
         <div class="col">
           <%= attachment_image_tag @user, :image, format: 'jpeg', size: "200x180", fallback:"no_image.png", class: "rounded-circle" %>
         </div>
-
 
         <div class="col">
 
@@ -34,7 +32,6 @@
           </div>
         </div>
 
-
         <div class="col">
           <div class="form-group">
             <h2> <%= @user.name %> </h2>
@@ -52,16 +49,23 @@
           <%= link_to "アトリエを改造する", edit_user_path(@user), class: "btn btn-success", remote: true %>
           <% end %>
         </div>
-
-
       </div>
-
-
       <hr>
 
-      <div class="my_post">
-        <%= render "users/my_post", my_post: @my_post %>
+
+      <div class="row my-5">
+        <div class="col">
+          <%= link_to "MYポートフォリオ", mypost_path(@user), remote: true %>
+        </div>
+        <div class="col">
+          <%= link_to "お気に入りポートフォリオ", mypost_path(@user), remote: true %>
+        </div>
       </div>
+
+      <div class="my_post">
+        <%= render "users/mypost", my_post: @my_post %>
+      </div>
+
 
 
     </div>

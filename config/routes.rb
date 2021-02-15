@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
   
   resources :boards
+  get "/users/:id/mypost", to: 'users#mypost', as: 'mypost'
   resources :users, only: [:show, :edit, :update] 
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'

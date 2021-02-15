@@ -47,6 +47,10 @@ class UsersController < ApplicationController
       @boards = Board.search(params[:search],  @searchs)
     end
 
+    def mypost
+      @my_post = Post.where(user_id: current_user.id)
+    end
+
   end
 
   protected
