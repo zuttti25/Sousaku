@@ -62,10 +62,15 @@
         </div>
       </div>
 
-      <div class="my_post">
+      <% if @my_post.exists? %>
+      <div class=" my_post">
         <%= render "users/mypost", my_post: @my_post %>
       </div>
-
+      <% elsif %>
+      <div class=" ??">
+        <%#= render "users/mypost" , my_post: @my_post %>
+      </div>
+      <% end %>
 
 
     </div>
