@@ -1,15 +1,15 @@
 <div class="comments">
   <% post.comments.each do |comment| %>
   <% post_comment_user = comment.user %>
-  <%= attachment_image_tag post_comment_user, :image, :fill, 50, 50, format: 'jpg', fallback:"no_image.jpg", class: "rounded-circle" %>
+  <%= attachment_image_tag post_comment_user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
   <%= comment.user.name %>
   <%= comment.created_at.strftime('%Y/%m/%d') %>
-  <%= comment.content %><br>
+  <%= comment.content %>
+  <% if comment.user == current_user %>
+  <%= link_to '削除', post_comment_path(post, comment), data: {confirm: '本当に削除しますか？'}, method: :delete %>
+  <% end %>
+  <br>
   <% end %>
 </div>
-<div class="new-comment">
-  <%= form_with model:[post, comment], local: true do |f| %>
-  <%= f.text_area :content, rows:'5',placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-  <% end %>
-</div>
+
+<%= link_to  "コメントする", new_post_comment_path(post, user), remote: true, class: "btn btn-primary" %>

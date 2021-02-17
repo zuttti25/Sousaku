@@ -1,19 +1,18 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
+  devise_for :users
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   
   resources :posts do
-    resources :likes, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :new]
   end
-  resources :categories, only: [:new, :create, :edit, :update, :destroy]
+  
+  resources :boards
+  get "/users/:id/mypost", to: 'users#mypost', as: 'mypost'
   resources :users, only: [:show, :edit, :update] 
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'
@@ -21,8 +20,6 @@ Rails.application.routes.draw do
   resources :messages, only:  [:create]
   resources :rooms, only: [:create, :show, :index]
   resources :notifications, only: [:index, :destroy]
-
-  #resources :rooms, only: [:show, :index]
-  #resources :messages, only: [:create]
+  get "search" => "users#search"
   root 'homes#top'
 end

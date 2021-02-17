@@ -96,6 +96,6 @@ gem 'paranoia'
 # 環境変数（GoogleMapで使用）
 gem 'dotenv-rails'
 # PV数をカウントする
-gem 'impressionist'
+gem 'impressionist', '~>1.6.1'
 # 投稿したURLにaタグ属性を追加する
 gem 'rinku'

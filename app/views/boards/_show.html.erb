@@ -1,0 +1,41 @@
+<div class="modal-dialog modal-xl">
+  <div class="modal-content board_show">
+    <h1 class="text-center">募集詳細</h1>
+    <hr>
+
+    <div class="board_content">
+      <p class="text-center board_font">【タイトル】</p>
+      <p class="text-center"><%= @board.title %></p>
+    </div>
+
+    <div class="board_content">
+      <p class="text-center board_font">【投稿者】</p>
+      <%= link_to user_path(@board.user) do %>
+      <p class="text-center"><%= @board.user.name %></p>
+      <% end %>
+    </div>
+
+    <div class="board_content">
+      <p class="text-center board_font">【募集要項】</p>
+      <p class="my-5 mx-5"><%= simple_format @board.essential %></p>
+    </div>
+
+    <div class="board_content">
+      <p class="text-center board_font">【求める条件】</p>
+      <p class="text-center"><%= simple_format @board.requirement %></p>
+    </div>
+
+    <div class="board_content">
+      <p class="text-center board_font">【連絡先】</p>
+      <p class="text-center"><%= @board.address %></p>
+    </div>
+
+    <div class="modal-footer">
+      <% if @board.user == current_user %>
+      <%= link_to "編集する", edit_board_path(@board), class:"btn btn-success" %>
+      <%= link_to "削除する", board_path(@board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy_board_#{@board.id}"%>
+      <% end %>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

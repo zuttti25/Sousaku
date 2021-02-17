@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
+    @my_post = Post.where(user_id: current_user.id)
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)  #@userが現在ログインしているユーザーではない場合
     #すでにroomsが"作成されている場合"と"作成されていない場合"に条件分岐
@@ -32,6 +33,24 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def search
+    @searchs = params[:option]
+    if @searchs == "1"
+      @users = User.search(params[:search],  @searchs)
+    elsif @searchs == "2"
+      @posts = Post.search(params[:search],  @searchs)
+    elsif @searchs == "3"
+      @tags = Tag.search(params[:search],  @searchs)
+    else @searchs == "4"
+      @boards = Board.search(params[:search],  @searchs)
+    end
+
+    def mypost
+      @my_post = Post.where(user_id: current_user.id)
+    end
+
   end
 
   protected
