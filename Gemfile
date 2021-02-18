@@ -83,3 +83,8 @@ gem 'dotenv-rails'
 gem 'impressionist', '~>1.6.1'
 # 投稿したURLにaタグ属性を追加する
 gem 'rinku'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
