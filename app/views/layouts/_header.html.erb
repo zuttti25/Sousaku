@@ -3,7 +3,7 @@
     <div class="container">
 
       <%= link_to root_path do %>
-      <%= image_tag 'logo.jpg', class:"logo-img mr-2" %>
+      <%= image_tag asset_path('logo.jpg'), class:"logo-img mr-2" %>
       <% end %>
 
       <%= form_tag(search_path, :method => 'get') do %>
