@@ -4,11 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use sqlite3 as the database for Active Record
-# 開発・本番・テスト環境をpostgresqlに変更
-# gem 'sqlite3'
-gem 'postgresql'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -41,13 +39,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # N+1問題
-  gem "bullet"
-  # デプロイ自動化
-  gem 'capistrano'
-  gem 'capistrano-rails'
-  gem 'capistrano3-puma'
-  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -60,22 +51,15 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  # gem 'chromedriver-helper'
-  gem 'webdrivers'
-  # テスト
   gem 'rspec-rails'
   gem "factory_bot_rails"
   gem 'faker'
-  # CircleCI使用時に必要
-  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
 
 # Bootstrap及びjQuery
 gem 'bootstrap', '~> 4.5.0'
@@ -96,6 +80,11 @@ gem 'paranoia'
 # 環境変数（GoogleMapで使用）
 gem 'dotenv-rails'
 # PV数をカウントする
-gem 'impressionist'
+gem 'impressionist', '~>1.6.1'
 # 投稿したURLにaタグ属性を追加する
 gem 'rinku'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end

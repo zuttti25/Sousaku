@@ -1,0 +1,16 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <h2 class="text-center">Follower Users</h2>
+    <hr>
+    <div class="follow-index">
+      <% if @users.exists? %>
+      <%= render 'follows', users: @users %>
+      <% else %>
+      <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>

@@ -15,18 +15,14 @@
  */
  @import "bootstrap";
 
- body {
-  height: auto;
-  font-family: 'Lato','游ゴシック体','YuGothic','游ゴシック','Yu Gothic','sans-serif','sans-serif';
-}
-
  header {
   background: white;
   width: 100%;
-  height: 120px;
+  height: 130px;
   position: fixed;
   top: 0;
   z-index: 10;
+  font-family: 'Bradley Hand',sans-serif;
 }
 
  .logo-img {
@@ -36,8 +32,46 @@
 }
 
 .main {
-  width: 70%;
   padding-top: 170px;
   margin-right: auto;
   margin-left: auto;
+  font-family: 'Yu Gothic';
+}
+
+hr{
+  background-color:gray;
+  height:1px;
+}
+
+ .box1{
+  border: 4px solid #82636b;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  margin: 2em 0;
+  padding: 2em;
+  background-image: image-url("board.jpg");
+  color: whitesmoke;
+  font-size: 25px;
+  text-shadow:1px 0 5px black;
+  font-weight: 900;
+ }
+
+ table{
+  white-space: nowrap;
+}
+// kaminariのページネーションを中央寄せ
+.pagination {
+  justify-content: center;
+}
+
+.board_show{
+  background-image: image-url("board.jpg");
+  color: whitesmoke;
+  font-size: 25px;
+  text-shadow:1px 0 5px black;
+  font-weight: 900;
+}
+
+.board_font{
+  font-family: monospace;
+  font-size: 30px;
 }
