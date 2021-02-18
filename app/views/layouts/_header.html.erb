@@ -3,7 +3,7 @@
     <div class="container">
 
       <%= link_to root_path do %>
-      <%= image_tag 'logo.jpeg', class:"logo-img mr-2" %>
+      <%= image_tag 'logo.jpg', class:"logo-img mr-2" %>
       <% end %>
 
       <%= form_tag(search_path, :method => 'get') do %>
@@ -15,33 +15,33 @@
       <% if user_signed_in? %>
 
       <%= link_to destroy_user_session_path, method: :delete do %>
-      <%= image_tag 'logout.jpeg', :size =>'40x40' %>
+      <%= image_tag 'logout.jpg', :size =>'40x40' %>
       <% end %>
 
       <%= link_to notifications_path, remote: true do %>
-      <%= image_tag 'Bell.jpeg', :size =>'40x40' %>
+      <%= image_tag 'Bell.jpg', :size =>'40x40' %>
       <% end %>
 
       <%= link_to user_path(current_user) do %>
-      <%= image_tag 'Face.jpeg', :size =>'40x40' %>
+      <%= image_tag 'Face.jpg', :size =>'40x40' %>
       <% end %>
 
       <%= link_to new_post_path(@user), remote: true do %>
-      <%= image_tag 'Pen.jpeg', :size =>'40x40' %>
+      <%= image_tag 'Pen.jpg', :size =>'40x40' %>
       <% end %>
 
       <% else %>
 
       <%= link_to new_user_registration_path do %>
-      <%= image_tag 'sing_up.jpeg', :size =>'40x40' %>
+      <%= image_tag 'sing_up.jpg', :size =>'40x40' %>
       <% end %>
 
       <%= link_to new_user_session_path do %>
-      <%= image_tag 'login.jpeg', :size =>'40x40' %>
+      <%= image_tag 'login.jpg', :size =>'40x40' %>
       <% end %>
 
       <%= link_to users_guest_sign_in_path, method: :post do %>
-      <%= image_tag 'Guest.jpeg', :size =>'40x40' %>
+      <%= image_tag 'Guest.jpg', :size =>'40x40' %>
       <% end %>
 
       <% end %>
