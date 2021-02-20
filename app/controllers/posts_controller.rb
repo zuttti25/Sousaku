@@ -45,9 +45,9 @@ class PostsController < ApplicationController
       @post.save_posts(tag_list)
       redirect_to post_path(@post)
       else
-        render :new
+        render :"posts/new"
       end
-    end
+  end
   
 
   def update

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   
   resources :boards
   get "/users/:id/mypost", to: 'users#mypost', as: 'mypost'
+  get "/users/:id/mylike", to: 'users#mylike', as: 'mylike'
   resources :users, only: [:show, :edit, :update] 
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'

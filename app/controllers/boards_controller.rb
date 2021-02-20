@@ -13,8 +13,11 @@ class BoardsController < ApplicationController
     end
   
     def create
-      Board.create(board_params)
-      @boards = Board.page(params[:page]).per(5).order("created_at DESC")
+      if Board.create(board_params)
+         @boards = Board.page(params[:page]).per(5).order("created_at DESC")
+        else
+        render :new
+      end
     end
 
   

@@ -58,18 +58,23 @@
           <%= link_to "MYポートフォリオ", mypost_path(@user), remote: true %>
         </div>
         <div class="col">
-          <%= link_to "お気に入りポートフォリオ", mypost_path(@user), remote: true %>
+          <%= link_to "お気に入りポートフォリオ", mylike_path(@user), remote: true %>
         </div>
       </div>
 
-      <% if @my_post.exists? %>
-      <div class=" my_post">
+
+　　  <% if @my_post.present? %>
+
+      <div class="my_post">
         <%= render "users/mypost", my_post: @my_post %>
       </div>
-      <% elsif %>
-      <div class=" ??">
-        <%#= render "users/mypost" , my_post: @my_post %>
+
+      <% elsif @my_like.present? %>
+
+      <div class="my_like">
+        <%= render "users/mylike" , my_like: @my_like %>
       </div>
+
       <% end %>
 
 

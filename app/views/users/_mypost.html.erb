@@ -1,5 +1,10 @@
-  <% if my_post.exists? %>
   <div class="row">
+  <% if my_post.nil? %>
+  
+    投稿はまだありません
+    
+  <% else %>
+  
     <% my_post.each do |post| %>
     <div class="col-3">
       <%= link_to post_path(post) do %>
@@ -13,8 +18,6 @@
       <% end %>
     </div>
     <% end %>
-
-    <% else %>
-    投稿はまだありません
-    <% end %>
+  
+  <% end %>
   </div>
