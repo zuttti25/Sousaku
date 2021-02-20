@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   
-  resources :posts do
+  resources :posts, constraints: { format: 'html' } do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :new]
   end

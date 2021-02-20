@@ -45,10 +45,10 @@ class PostsController < ApplicationController
       @post.save_posts(tag_list)
       redirect_to post_path(@post)
       else
-        render :"posts/new"
+        render :new
       end
   end
-  
+
 
   def update
     post = Post.find(params[:id])
