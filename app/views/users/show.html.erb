@@ -65,13 +65,13 @@
 
 　　  <% if @my_post.present? %>
 
-      <div class="my_post">
+      <div class="my_area">
         <%= render "users/mypost", my_post: @my_post %>
       </div>
 
       <% elsif @my_like.present? %>
 
-      <div class="my_like">
+      <div class="my_area">
         <%= render "users/mylike" , my_like: @my_like %>
       </div>
 
