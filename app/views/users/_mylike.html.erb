@@ -1,5 +1,5 @@
 <div class="row">
-  <% if my_like.present? %>
+  <% if my_like.exists? %>
     <% my_like.each do |like| %>
     <div class="col-3">
       <%= link_to post_path(like.post) do %>
@@ -14,6 +14,8 @@
     </div>
     <% end %>
   <% else %>
+   <div class="col-3">
     お気に入りはまだありません
+    </div>
   <% end %>
 </div>
