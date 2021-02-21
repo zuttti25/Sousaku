@@ -43,7 +43,8 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(",")
       if @post.save
       @post.save_posts(tag_list)
-      redirect_to post_path(@post)
+      #redirect_to post_path(@post)
+      #render "posts/show"
       else
         render :new
       end

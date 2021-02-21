@@ -1,49 +1,27 @@
-
-
-<header class ="header">
+<header>
+  <nav class="navbar">
+    <div class="container">
+      
   <h1>
-    <%#= link_to image_tag("logo.jpg", class: "logo"), root_path %>
-    <%= link_to "創索-sousaku- ", root_path %>
+    <%= link_to "創索-sousaku-", root_path, class: "logo" %>
   </h1>
-  <div class="search">
       <%= render "layouts/search_form" %>
-  </div>
-</header>
 
-
-<nav class="navbar">
   <% if user_signed_in? %>
 
-      <ul class="nav-list">
-
-        <li class="nav-list-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-nav' %>
-        </li>
-        
-        <li class="nav-list-item">
-            <%= link_to "通知", notifications_path, remote: true, class: 'btn btn-nav' %>
-        </li>
-        
-        <li class="nav-list-item">
-          <%= link_to "マイページ", user_path(current_user), remote: true, class: 'btn btn-nav' %>
-        </li>
-        
-        <li class="nav-list-item">
-          <%= link_to "新規投稿", new_post_path(@user), remote: true, class: 'btn btn-nav' %>
-        </li>
-      </ul>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-nav' %>
+    <%= link_to "通知", notifications_path, remote: true, class: 'btn btn-nav' %>
+    <%= link_to "マイページ", user_path(current_user), remote: true, class: 'btn btn-nav' %>
+    <%= link_to "新規投稿", new_post_path(@user), remote: true, class: 'btn btn-nav' %>
 
   <% else %>
 
-      <li class="nav-list-item">
-        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-nav' %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-nav' %>
-      </li>
-      <li class="nav-list-item">
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-nav' %>
-      </li>
+    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-nav' %>
+    <%= link_to "ログイン", new_user_session_path, class: 'btn btn-nav' %>
+    <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-nav' %>
+  
   <% end %>
 
-</nav>
+    </div>
+  </nav>
+</header>

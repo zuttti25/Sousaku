@@ -23,35 +23,16 @@
  }
 
  header {
-  width: 90%; /* 横幅 */
-  padding: 15px 0;
-  margin: 0 auto;
-  left: 25px;
-  position: relative;
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 }
 
-.search {
-  position: absolute;
-  top: 25px;
-  left: 350px;
+ .logo {
 }
-
-.nav-list {
-  text-align: center;
-  padding: 0 0;
-  margin: 0 auto;
-}
-
-.nav-list-item {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
-}
-
-header, navbar {
-  font-family: Chalkduster, "Bradley Hand", Courier, "Segoe Print", sans-serif;
-}
-
 //＿＿＿＿ここまでheader＿＿＿＿＿
 
 .btn-nav {
@@ -82,7 +63,7 @@ header, navbar {
   -webkit-box-shadow: 4px 4px 0 #000;
   box-shadow: -4px -4px 0 #000;;
  }
- 
+
  .btn-nav3 {
   border: 2px solid #000;
   border-radius: 30px;
@@ -110,7 +91,7 @@ header, navbar {
   -webkit-box-shadow: 4px 4px 0 #000;
   box-shadow: -4px -4px 0 #000;;
  }
- 
+
  .btn-nav5 {
    background-color: #00FFFF;
    transition: background-color 0.5s, border-radius 1s;
@@ -122,7 +103,7 @@ header, navbar {
     border-radius: 20px;
     transition: background-color 1s, border-radius 2s;
  }
- 
+
  .btn-nav6 {
    background-color: #AA0000;
    border-radius: 20px;
@@ -134,17 +115,16 @@ header, navbar {
      border-radius: 0;
    transition: background-color 1s, border-radius 2s;
  }
- 
-
 
 //ここまでボタン
+
 
 .main {
   padding-top: 170px;
   margin-right: auto;
   margin-left: auto;
   font-family: 'Yu Gothic';
-   background-color: orange;
+  background-color: pink ;
 }
 
 hr{
