@@ -65,7 +65,7 @@ header, navbar {
 
 .btn-nav:hover {
   -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: -4px -4px 0 #000;;
+  box-shadow: -4px -4px 0 #000;
  }
 
 
@@ -82,6 +82,60 @@ header, navbar {
   -webkit-box-shadow: 4px 4px 0 #000;
   box-shadow: -4px -4px 0 #000;;
  }
+ 
+ .btn-nav3 {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #DC143C;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav3:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;;
+ }
+
+.btn-nav4 {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #228B22;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav4:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;;
+ }
+ 
+ .btn-nav5 {
+   background-color: #00FFFF;
+   transition: background-color 0.5s, border-radius 1s;
+   color: whitesmoke;
+ }
+
+.btn-nav5:hover {
+   background-color: #AA0000;
+    border-radius: 20px;
+    transition: background-color 1s, border-radius 2s;
+ }
+ 
+ .btn-nav6 {
+   background-color: #AA0000;
+   border-radius: 20px;
+   transition: background-color 0.5s, border-radius 1s;
+ }
+
+.btn-nav6:hover {
+    background-color: #00FFFF;
+     border-radius: 0;
+   transition: background-color 1s, border-radius 2s;
+ }
+ 
+
 
 //ここまでボタン
 
