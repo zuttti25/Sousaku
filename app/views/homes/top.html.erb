@@ -12,7 +12,7 @@
              <% @active_posts.each.with_index(1) do |post| %>
              <div class="col-3">
                <p>
-                 <%= link_to user_path(post.user) do %>
+                 <%= link_to user_path(post.user), remote: true do %>
                  <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
                  <% end %>
                </p>

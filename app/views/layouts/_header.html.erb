@@ -2,7 +2,7 @@
   <nav class="navbar">
     <div class="container">
 
-      <%= link_to root_path, remote: true do %>
+      <%= link_to root_path do %>
       <%= image_tag asset_path('logo.jpg'), class:"logo-img mr-2" %>
       <% end %>
 
@@ -14,35 +14,21 @@
 
       <% if user_signed_in? %>
 
-      <%= link_to destroy_user_session_path, method: :delete do %>
-      <%= image_tag 'logout.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 
-      <%= link_to notifications_path, remote: true do %>
-      <%= image_tag 'Bell.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "通知", notifications_path, remote: true %>
 
-      <%= link_to user_path(current_user), remote: true do %>
-      <%= image_tag 'Face.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "マイページ", user_path(current_user), remote: true %>
 
-      <%= link_to new_post_path(@user), remote: true do %>
-      <%= image_tag 'Pen.jpg', :size =>'40x40' %>
-      <% end %>
-
+      <%= link_to "新規投稿", new_post_path(@user), remote: true %>
+      
       <% else %>
 
-      <%= link_to new_user_registration_path do %>
-      <%= image_tag 'sing_up.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "新規登録", new_user_registration_path %>
 
-      <%= link_to new_user_session_path do %>
-      <%= image_tag 'login.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "ログイン", new_user_session_path %>
 
-      <%= link_to users_guest_sign_in_path, method: :post do %>
-      <%= image_tag 'Guest.jpg', :size =>'40x40' %>
-      <% end %>
+      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
 
       <% end %>
     </div>

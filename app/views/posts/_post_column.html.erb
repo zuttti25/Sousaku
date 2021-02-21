@@ -10,7 +10,7 @@
 
         <div class="form-group">
           <h5>投稿者 <p class="ml-5">
-            <%= link_to user_path(post.user) do %>
+            <%= link_to user_path(post.user), remote: true do %>
             <%= post.user.name %>
             <% end  %>
             </p>
