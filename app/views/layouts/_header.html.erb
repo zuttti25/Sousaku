@@ -22,7 +22,7 @@
       <%= image_tag 'Bell.jpg', :size =>'40x40' %>
       <% end %>
 
-      <%= link_to user_path(current_user) do %>
+      <%= link_to user_path(current_user), remote: true do %>
       <%= image_tag 'Face.jpg', :size =>'40x40' %>
       <% end %>
 
