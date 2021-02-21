@@ -25,6 +25,7 @@
   <div id="user-followings-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
 
   <%= render 'layouts/header' %>
+
   <% if flash[:notice] %>
   <div class="notification is-info">
     <p class="notice"><%= notice %></p>
@@ -35,10 +36,13 @@
     <p class="alert"><%= alert %></p>
   </div>
   <% end %>
+  
   <main class="main">
     <%= yield %>
   </main>
+  
      <%= render 'layouts/footer' %>
+
 </body>
 
 </html>

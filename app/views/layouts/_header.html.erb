@@ -1,36 +1,49 @@
-<header>
-  <nav class="navbar">
-    <div class="container">
 
-      <%= link_to root_path do %>
-      <%= image_tag asset_path('logo.jpg'), class:"logo-img mr-2" %>
-      <% end %>
 
-      <%= form_tag(search_path, :method => 'get') do %>
-      <%= select_tag(:option, options_for_select([["クリエイター", "1"],["投稿作品","2"],["タグ","3"],["掲示板","4"]]))%>
-      <%= text_field_tag :search %>
-      <%= submit_tag '検索する' %>
-      <% end %>
-
-      <% if user_signed_in? %>
-
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-
-      <%= link_to "通知", notifications_path, remote: true %>
-
-      <%= link_to "マイページ", user_path(current_user), remote: true %>
-
-      <%= link_to "新規投稿", new_post_path(@user), remote: true %>
-      
-      <% else %>
-
-      <%= link_to "新規登録", new_user_registration_path %>
-
-      <%= link_to "ログイン", new_user_session_path %>
-
-      <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post %>
-
-      <% end %>
-    </div>
-  </nav>
+<header class ="header">
+  <h1>
+    <%#= link_to image_tag("logo.jpg", class: "logo"), root_path %>
+    <%= link_to "創索-sousaku- ", root_path %>
+  </h1>
+  <div class="search">
+      <%= render "layouts/search_form" %>
+  </div>
 </header>
+
+
+<nav class="navbar">
+  <% if user_signed_in? %>
+
+      <ul class="nav-list">
+
+        <li class="nav-list-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-nav' %>
+        </li>
+        
+        <li class="nav-list-item">
+            <%= link_to "通知", notifications_path, remote: true, class: 'btn btn-nav' %>
+        </li>
+        
+        <li class="nav-list-item">
+          <%= link_to "マイページ", user_path(current_user), remote: true, class: 'btn btn-nav' %>
+        </li>
+        
+        <li class="nav-list-item">
+          <%= link_to "新規投稿", new_post_path(@user), remote: true, class: 'btn btn-nav' %>
+        </li>
+      </ul>
+
+  <% else %>
+
+      <li class="nav-list-item">
+        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-nav' %>
+      </li>
+      <li class="nav-list-item">
+        <%= link_to "ログイン", new_user_session_path, class: 'btn btn-nav' %>
+      </li>
+      <li class="nav-list-item">
+        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-nav' %>
+      </li>
+  <% end %>
+
+</nav>

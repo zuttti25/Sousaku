@@ -85,6 +85,8 @@ gem 'impressionist', '~>1.6.1'
 gem 'rinku'
 #エラーメッセージの日本語化
 gem 'rails-i18n'
+#アイコン
+gem 'font-awesome-sass', '~> 5.13'
 
 gem 'dotenv-rails'
 group :production do
