@@ -18,7 +18,7 @@
                </p>
 
                <p>
-                 <%= link_to post_path(post.id) do %>
+                 <%= link_to post_path(post.id), remote: true do %>
                  <% post.title %>
                  <% end %>
                </p>

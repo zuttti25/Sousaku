@@ -10,10 +10,15 @@
 
     <div class="board_content">
       <p class="text-center board_font">【投稿者】</p>
-      <%= link_to user_path(@board.user) do %>
-      <p class="text-center"><%= @board.user.name %></p>
+      <%= link_to user_path(@board.user), remote: true do %>
+       <p class="text-center" "btn btn-default" data-dismiss="modal">
+      <%= @board.user.name %>
+      </p>
       <% end %>
     </div>
+
+
+
 
     <div class="board_content">
       <p class="text-center board_font">【募集要項】</p>
@@ -32,7 +37,7 @@
 
     <div class="modal-footer">
       <% if @board.user == current_user %>
-      <%= link_to "編集する", edit_board_path(@board), class:"btn btn-success" %>
+      <%= link_to "編集する", edit_board_path(@board), remote: true, class:"btn btn-success" %>
       <%= link_to "削除する", board_path(@board), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy_board_#{@board.id}"%>
       <% end %>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
