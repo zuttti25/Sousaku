@@ -2,18 +2,18 @@
   <div class="row text-center">
     <div class="col">
 
-      <div class="row my_introduction">
-         <%= render "users/my_introduction" %>
+      <div class="row profile">
+         <%= render "users/profile" %>
       </div>
       <hr>
 
 
       <div class="row my-5">
         <div class="col">
-          <%= link_to "MYポートフォリオ", mypost_path(@user), remote: true, class: 'btn btn-nav2' %>
+          <%= link_to "これまでの活動実績↓↓", mypost_path(@user), remote: true, class: 'btn btn-nav2' %>
         </div>
         <div class="col">
-          <%= link_to "お気に入りポートフォリオ", mylike_path(@user), remote: true, class: 'btn btn-nav2' %>
+          <%= link_to "興味のある活動↓↓", mylike_path(@user), remote: true, class: 'btn btn-nav2' %>
         </div>
       </div>
 
