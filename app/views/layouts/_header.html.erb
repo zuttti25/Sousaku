@@ -16,8 +16,8 @@
 
   <% else %>
 
-     <a class="btn btn-nav" data-toggle="modal" data-target="#signUpModal">新規登録</span></a>
-     <a class="btn btn-nav" data-toggle="modal" data-target="#logInModal">ログイン</a>
+    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-nav', remote: true %>
+    <%= link_to "ログイン", new_user_session_path, class: 'btn btn-nav', remote: true %>
     <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-nav' %>
   
   <% end %>
