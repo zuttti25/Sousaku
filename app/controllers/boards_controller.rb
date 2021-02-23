@@ -15,7 +15,8 @@ class BoardsController < ApplicationController
     def create
        @board = Board.new(board_params)
       if @board.save
-         @boards = Board.page(params[:page]).per(5).order("created_at DESC")
+         #@boards = Board.all
+         @boards = Board.page(params[:page]).per(4).order("created_at DESC")
       else
         render :new
       end

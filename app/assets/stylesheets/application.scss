@@ -132,26 +132,6 @@ hr{
   height:1px;
 }
 
- .box1{
-  border: 4px solid #82636b;
-  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
-  margin: 2em 0;
-  padding: 2em;
-  background-image: image-url("board.jpg");
-  color: whitesmoke;
-  font-size: 25px;
-  text-shadow:1px 0 5px black;
-  font-weight: 900;
- }
-
- table{
-  white-space: nowrap;
-}
-// kaminariのページネーションを中央寄せ
-.pagination {
-  justify-content: center;
-}
-
 .board_show{
   background-image: image-url("board.jpg");
   color: whitesmoke;
@@ -187,6 +167,39 @@ hr{
   background:#FFEBE8;
   text-align: center;
   }
+  
+.boards{
+  border: 3px solid #82636b;
+  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+  margin: 2em 0;
+  padding: 2em;
+  color: black;
+  font-size: 20px;
+  background-color: whitesmoke;
+}
+
+.pagination {
+  justify-content: center;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+  border-radius: 15px;    /*角を丸くする*/
+}
+  
+//---ここまでページネーション  
+
     // フッター
 footer {
   width: 100%;
