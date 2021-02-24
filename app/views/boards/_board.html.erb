@@ -1,21 +1,42 @@
 <h1>パートナー募集！
   <% if user_signed_in? %>
-    <%= link_to "記入する", new_board_path(current_user), remote: true, class: "btn btn-primary" %>
+    <span class="mouse">
+      <%= link_to new_board_path(current_user), remote: true do %>
+      <i class="fas fa-pen icon"></i>
+  <% end  %>
+    <span class="word">記入する</span>
+    </span>
   <% end %>
 </h1>
  
+      
 <div class="row">
   <% @boards.each do |board| %>
     <div class="col-3 boards">
-      <p><%= board.title %></p>
-      <p><%= board.user.name %></p>
-      <p><%= board.essential.truncate(15) %></p>
-      <%= link_to "詳 細 へ", board_path(board), remote: true, class: 'btn btn-nav2' %>
+      
     <% if board.user == current_user %>
-      <%= link_to "編集する", edit_board_path(board), remote: true, class: 'btn btn-nav3' %>
-      <%= link_to "削除する", board_path(board), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-nav4' %>
-   <% end %>
+       <h3>タイトル
+      <%= link_to edit_board_path(board), remote: true do %>
+      <i class="far fa-edit"></i>
+      <% end %>
+    
+      <%= link_to board_path(board), method: :delete, data: { confirm: '本当に消しますか？' } do %>
+      <i class="far fa-trash-alt"></i>
+      <% end %>
+      
+      <% else %>
+      <h3>タイトル　　　　<h3>
+    <% end %>
+      </h3>
+      <p><%= board.title %></p>
+      
+      <h3>企画内容　　　　　　　</h3>
+      <p><%= board.essential.truncate(15) %></p>
+      <%= link_to "詳 細 へ→→→", board_path(board), remote: true %>
+      <div class="mt-3">
+        by <%= board.user.name %>
+      </div>
     </div>
   <% end %>
 </div>
-    <%= paginate @boards, :remote => true %>
+    

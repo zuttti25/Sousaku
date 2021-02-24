@@ -9,7 +9,7 @@
     </div>
 
     <%= form_with model: @board, remote: true do |f| %>
- 
+
     <div class="modal-body">
 
       <div class="form-group">
@@ -19,7 +19,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :essential, "募集要項" %>
+        <%= f.label :essential, "企画内容" %>
         <%= f.text_area :essential, class: "form-control" %>
         <%= render "layouts/error_messages", model: @board, attribute: :essential %>
       </div>

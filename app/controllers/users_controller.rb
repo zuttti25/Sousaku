@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
   end
 
+  def index
+    @users = User.all
+  end
+
   def show
     @user=User.find(params[:id])
     @my_post = Post.where(user_id: @user.id)
@@ -30,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
- 
+
     else
       render :edit
     end
@@ -53,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @my_post = Post.where(user_id: @user.id)
   end
-  
+
   def mylike
     @user = User.find(params[:id])
     @my_like = Like.where(user_id: @user.id)

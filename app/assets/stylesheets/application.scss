@@ -14,13 +14,14 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
 
- * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
- }
+ body{
+font-family: "Kokoro";  
+}
+
 
  header {
   background-color: rgba(255, 255, 255, 0);
@@ -31,8 +32,7 @@
   z-index: 10;
 }
 
- .logo {
-}
+
 //＿＿＿＿ここまでheader＿＿＿＿＿
 
 .btn-nav {
@@ -133,16 +133,11 @@ hr{
 }
 
 .board_show{
-  background-image: image-url("board.jpg");
-  color: whitesmoke;
-  font-size: 25px;
-  text-shadow:1px 0 5px black;
-  font-weight: 900;
+  color: black;
 }
 
-.board_font{
-  font-family: monospace;
-  font-size: 30px;
+.boards{
+  color: red;
 }
 
 // エラーメッセージ
@@ -167,7 +162,7 @@ hr{
   background:#FFEBE8;
   text-align: center;
   }
-  
+
 .boards{
   border: 3px solid #82636b;
   border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
@@ -182,23 +177,51 @@ hr{
   justify-content: center;
 }
 
-/*ページネーション自体のデザイン*/
-.pagination>li>a {          
+// ページネーションのCSS
+.pagination>li>a {
   border: none;     /*枠線をなくす*/
   color: #696969;   /*文字の色を変える*/
 }
 
 /* 表示しているページ番号のデザイン */
-.pagination>.active>a {     
+.pagination>.active>a {
   background: #93c9ff;     /*背景の色を変える*/
-  border-radius: 15px;     /*角を丸くする*/
 }
+
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {        
+.pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
 }
-  
-//---ここまでページネーション  
+//---ここまでページネーション
+
+.fa-smile{
+  font-size: 100px; /*1.5倍にする*/
+}
+
+.mouse {
+  margin: 30px 0px 0px 30px;
+  position   : relative;
+}
+
+.mouse:hover .word {
+  display: inline;
+}
+
+.word {
+  position   : absolute;
+  display: none;
+  padding: 2px;
+  color: aliceblue;
+  border-radius: 5px;
+  background-color: #339933;
+  width:100px;
+  top: 50px;
+  left: 0px;
+  font-size: 12px;
+  text-align: center;
+}
+
+//-----マウスのカーソルを合わせると文字が浮きでる
 
     // フッター
 footer {

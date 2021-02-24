@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar">
     <div class="container">
-      
+
   <h1>
     <%= link_to "創索-sousaku-", root_path, class: "logo" %>
   </h1>
@@ -9,17 +9,58 @@
 
   <% if user_signed_in? %>
 
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-nav' %>
-    <%= link_to "通知", notifications_path, remote: true, class: 'btn btn-nav' %>
-    <%= link_to "マイページ", user_path(current_user), remote: true, class: 'btn btn-nav' %>
-    <%= link_to "新規投稿", new_post_path(@user), remote: true, class: 'btn btn-nav' %>
+    <div class="mouse">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt fa-3x icon"></i>
+        <% end %>
+       <span class="word">ログアウト</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to notifications_path, remote: true do %>
+          <i class="fas fa-bell fa-3x icon"></i>
+        <% end %>
+       <span class="word">通知</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to user_path(current_user), remote: true do %>
+          <i class="fas fa-user fa-3x icon"></i>
+        <% end %>
+       <span class="word">マイページ</span>
+    </div>
+    
+    
+    <div class="mouse">
+        <%= link_to new_post_path(@user), remote: true do %>
+          <i class="fas fa-file-signature fa-3x icon"></i>
+        <% end %>
+       <span class="word">新規投稿</span>
+    </div>
 
   <% else %>
+    
+    <div class="mouse">
+        <%= link_to  new_user_registration_path, remote: true do %>
+          <i class="fas fa-user-plus fa-3x icon"></i>
+        <% end  %>
+       <span class="word">新規登録</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to new_user_session_path, remote: true do %>
+          <i class="fas fa-sign-in-alt fa-3x icon"></i>
+        <% end  %>
+       <span class="word">ログイン</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to users_guest_sign_in_path, method: :post do %>
+          <i class="fas fa-users fa-3x icon"></i>
+        <% end  %>
+       <span class="word">ゲストログイン</span>
+    </div>
 
-    <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-nav', remote: true %>
-    <%= link_to "ログイン", new_user_session_path, class: 'btn btn-nav', remote: true %>
-    <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'btn btn-nav' %>
-  
   <% end %>
 
     </div>

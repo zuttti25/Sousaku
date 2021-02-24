@@ -13,15 +13,16 @@ Rails.application.routes.draw do
   end
 
   
+  get "/posts/pickup", to: 'posts#pickup', as: 'pickup'
+  get "/posts/popular", to: 'posts#popular', as: 'popular'
   resources :posts do
     resource :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :new]
   end
-  
   resources :boards
   get "/users/:id/mypost", to: 'users#mypost', as: 'mypost'
   get "/users/:id/mylike", to: 'users#mylike', as: 'mylike'
-  resources :users, only: [:show, :edit, :update] 
+  resources :users, only: [:index, :show, :edit, :update] 
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'
   get "/users/:id/relationships/followings", to: 'relationships#followers', as: 'followers'

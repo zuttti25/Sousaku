@@ -66,6 +66,14 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
+  
+  def popular
+    @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(4).pluck(:post_id))
+  end
+
+  def pickup
+     @pickup = Post.limit(8).order("created_at DESC")
+  end
 
   private
 
