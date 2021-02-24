@@ -4,10 +4,17 @@
             <h2>所持SKILL</h2>
               <h5> <%= @user.skill %> </h5>
             </div>
+            
+          <h5>作業場所へのリンクはこちら↓↓</h5>
+            <% if @user.link.nil? %>
+            <div class="form-group">
+              <h5> <%= @user.link %> </h5>
+            </div>
+            <% else %>
+            <div class="form-group">
+              <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
+            </div>
 
-          <div class="follow_count">
-            <%= render "relationships/follow_count" , user: @user %>
-          </div>
         </div>
 
     <div class="col">
@@ -23,6 +30,9 @@
   
         <h3><%= @user.name %></h3>
         
+          <div class="follow_count">
+            <%= render "relationships/follow_count" , user: @user %>
+          </div>
         <span>
           <div>
             <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
@@ -52,15 +62,6 @@
               <h5> <%= @user.introduction %> </h5>
             </div>
 
-          <h5>作業場所へのリンクはこちら↓↓</h5>
-            <% if @user.link.nil? %>
-            <div class="form-group">
-              <h5> <%= @user.link %> </h5>
-            </div>
-            <% else %>
-            <div class="form-group">
-              <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
-            </div>
 
           <% end %>
 

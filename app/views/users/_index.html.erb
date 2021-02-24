@@ -6,6 +6,7 @@
       <%= attachment_image_tag user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
       <% end %>
       <p><%= user.name  %></p>
+      <p><%= user.skill %></p>
     </div>
    <% end %>
   <% else %>

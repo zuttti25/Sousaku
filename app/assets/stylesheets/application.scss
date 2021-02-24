@@ -160,7 +160,7 @@ hr{
   background:#FFEBE8;
   text-align: center;
   }
-  
+
 //-------ここまでメッセージ関連
 
 //------ここからboard
@@ -241,6 +241,10 @@ hr{
 
 //-----マウスのカーソルを合わせると文字が浮きでる
 
+.no_text{
+  text-align: center;
+  margin: 50px 0;
+}
 
     // フッター
 footer {
