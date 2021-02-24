@@ -18,8 +18,16 @@
  @import 'font-awesome';
 
 
- body{
-font-family: "Kokoro";  
+ body {
+  font-family: 'Yusei Magic', sans-serif;
+ }
+
+.main {
+  padding-top: 170px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: whitesmoke;
+  width: 100%;
 }
 
 
@@ -31,9 +39,9 @@ font-family: "Kokoro";
   top: 0;
   z-index: 10;
 }
-
-
 //＿＿＿＿ここまでheader＿＿＿＿＿
+
+
 
 .btn-nav {
   border: 2px solid #000;
@@ -119,13 +127,6 @@ font-family: "Kokoro";
 //ここまでボタン
 
 
-.main {
-  padding-top: 170px;
-  margin-right: auto;
-  margin-left: auto;
-  font-family: 'Yu Gothic';
-  background-color: whitesmoke ;
-}
 
 hr{
   background-color:gray;
@@ -136,11 +137,8 @@ hr{
   color: black;
 }
 
-.boards{
-  color: red;
-}
+//--------ここからメッセージ関連
 
-// エラーメッセージ
 .alert{
   color:#262626;
   background:#FFEBE8;
@@ -162,6 +160,14 @@ hr{
   background:#FFEBE8;
   text-align: center;
   }
+  
+//-------ここまでメッセージ関連
+
+//------ここからboard
+
+.top_board{
+  display: flex;
+}
 
 .boards{
   border: 3px solid #82636b;
@@ -171,7 +177,15 @@ hr{
   color: black;
   font-size: 20px;
   background-color: whitesmoke;
+  width: 75%;
 }
+
+.board_content{
+  text-align: center;
+}
+
+//------ここまでboard関係
+
 
 .pagination {
   justify-content: center;
@@ -198,6 +212,10 @@ hr{
   font-size: 100px; /*1.5倍にする*/
 }
 
+//----プロフィールアイコン
+
+
+//----アイコンにカーソルを合わせると文字が浮き出る
 .mouse {
   margin: 30px 0px 0px 30px;
   position   : relative;
@@ -223,10 +241,11 @@ hr{
 
 //-----マウスのカーソルを合わせると文字が浮きでる
 
+
     // フッター
 footer {
   width: 100%;
-  height: 150px;
+  height: 100px;
   background: rgba(232, 228, 220, 0.8);
   display: flex;
   justify-content: center;

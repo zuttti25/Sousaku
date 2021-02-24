@@ -1,4 +1,4 @@
-<h1>パートナー募集！
+<h1>仲間募集！
   <% if user_signed_in? %>
     <span class="mouse">
       <%= link_to new_board_path(current_user), remote: true do %>
@@ -10,9 +10,9 @@
 </h1>
  
       
-<div class="row">
+<div class = "top_board">
   <% @boards.each do |board| %>
-    <div class="col-3 boards">
+    <div class="boards">
       
     <% if board.user == current_user %>
        <h3>タイトル
@@ -25,13 +25,13 @@
       <% end %>
       
       <% else %>
-      <h3>タイトル　　　　<h3>
+      <h3>タイトル<h3>
     <% end %>
       </h3>
       <p><%= board.title %></p>
       
-      <h3>企画内容　　　　　　　</h3>
-      <p><%= board.essential.truncate(15) %></p>
+      <h3>企画内容</h3>
+      <p><%= board.essential.truncate(28) %></p>
       <%= link_to "詳 細 へ→→→", board_path(board), remote: true %>
       <div class="mt-3">
         by <%= board.user.name %>
