@@ -13,6 +13,12 @@ has_many :tagmaps, dependent: :destroy
 has_many :tags, through: :tagmaps
 
 
+  with_options presence: true do
+	  validates :title
+	  validates :product
+	end
+
+
 #いいねのインスタンスメソッド
 def create_notification_like!(current_user)
   # すでに「いいね」されているか検索

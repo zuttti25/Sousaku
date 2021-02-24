@@ -14,28 +14,117 @@
  *= require_self
  */
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+
+ body{
+font-family: "Kokoro";  
+}
+
 
  header {
-  background: white;
+  background-color: rgba(255, 255, 255, 0);
   width: 100%;
-  height: 130px;
+  height: 100px;
   position: fixed;
   top: 0;
   z-index: 10;
-  font-family: 'Bradley Hand',sans-serif;
 }
 
- .logo-img {
-  height: 120px;
-  width: 220px;
-  text-align: center;
-}
+
+//＿＿＿＿ここまでheader＿＿＿＿＿
+
+.btn-nav {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #9ACD32;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;
+ }
+
+
+.btn-nav2 {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #00BFFF;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav2:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;;
+ }
+
+ .btn-nav3 {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #DC143C;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav3:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;;
+ }
+
+.btn-nav4 {
+  border: 2px solid #000;
+  border-radius: 30px;
+  background: #228B22;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  margin-left: 20px;
+ }
+
+.btn-nav4:hover {
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: -4px -4px 0 #000;;
+ }
+
+ .btn-nav5 {
+   background-color: #00FFFF;
+   transition: background-color 0.5s, border-radius 1s;
+   color: whitesmoke;
+ }
+
+.btn-nav5:hover {
+   background-color: #AA0000;
+    border-radius: 20px;
+    transition: background-color 1s, border-radius 2s;
+ }
+
+ .btn-nav6 {
+   background-color: #AA0000;
+   border-radius: 20px;
+   transition: background-color 0.5s, border-radius 1s;
+ }
+
+.btn-nav6:hover {
+    background-color: #00FFFF;
+     border-radius: 0;
+   transition: background-color 1s, border-radius 2s;
+ }
+
+//ここまでボタン
+
 
 .main {
   padding-top: 170px;
   margin-right: auto;
   margin-left: auto;
   font-family: 'Yu Gothic';
+  background-color: whitesmoke ;
 }
 
 hr{
@@ -43,35 +132,104 @@ hr{
   height:1px;
 }
 
- .box1{
-  border: 4px solid #82636b;
+.board_show{
+  color: black;
+}
+
+.boards{
+  color: red;
+}
+
+// エラーメッセージ
+.alert{
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px; font-weight:850;
+  }
+
+.notice {
+  color:#262626;
+  background:#ffebe800;
+  text-align: center;
+  border: 2px solid #2196F3;
+  padding:12px; font-weight:850;
+  }
+
+.error{
+  color:#262626;
+  background:#FFEBE8;
+  text-align: center;
+  }
+
+.boards{
+  border: 3px solid #82636b;
   border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
   margin: 2em 0;
   padding: 2em;
-  background-image: image-url("board.jpg");
-  color: whitesmoke;
-  font-size: 25px;
-  text-shadow:1px 0 5px black;
-  font-weight: 900;
- }
-
- table{
-  white-space: nowrap;
+  color: black;
+  font-size: 20px;
+  background-color: whitesmoke;
 }
-// kaminariのページネーションを中央寄せ
+
 .pagination {
   justify-content: center;
 }
 
-.board_show{
-  background-image: image-url("board.jpg");
-  color: whitesmoke;
-  font-size: 25px;
-  text-shadow:1px 0 5px black;
-  font-weight: 900;
+// ページネーションのCSS
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
 }
 
-.board_font{
-  font-family: monospace;
-  font-size: 30px;
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
 }
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+//---ここまでページネーション
+
+.fa-smile{
+  font-size: 100px; /*1.5倍にする*/
+}
+
+.mouse {
+  margin: 30px 0px 0px 30px;
+  position   : relative;
+}
+
+.mouse:hover .word {
+  display: inline;
+}
+
+.word {
+  position   : absolute;
+  display: none;
+  padding: 2px;
+  color: aliceblue;
+  border-radius: 5px;
+  background-color: #339933;
+  width:100px;
+  top: 50px;
+  left: 0px;
+  font-size: 12px;
+  text-align: center;
+}
+
+//-----マウスのカーソルを合わせると文字が浮きでる
+
+    // フッター
+footer {
+  width: 100%;
+  height: 150px;
+  background: rgba(232, 228, 220, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px dashed #ffb300
+  }

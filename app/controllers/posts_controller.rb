@@ -43,12 +43,11 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tag_name].split(",")
       if @post.save
       @post.save_posts(tag_list)
-      redirect_to post_path(@post)
       else
         render :new
       end
-    end
-  
+  end
+
 
   def update
     post = Post.find(params[:id])
@@ -66,6 +65,14 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
+  end
+  
+  def popular
+    @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(4).pluck(:post_id))
+  end
+
+  def pickup
+     @pickup = Post.limit(8).order("created_at DESC")
   end
 
   private

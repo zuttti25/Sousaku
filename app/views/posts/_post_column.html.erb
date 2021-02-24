@@ -9,7 +9,11 @@
         </div>
 
         <div class="form-group">
-          <h5>投稿者 <p class="ml-5"><%= post.user.name %></p>
+          <h5>投稿者 <p class="ml-5">
+            <%= link_to user_path(post.user), remote: true do %>
+            <%= post.user.name %>
+            <% end  %>
+            </p>
         </div>
 
         <div class="form-group">
@@ -40,8 +44,8 @@
 
         <div>
           <% if post.user == current_user %>
-          <%= link_to "編集する", edit_post_path(post), class:"btn btn-success", remote: true %>
-          <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy_post_#{post.id}"%>
+          <%= link_to "編集する", edit_post_path(post), class: 'btn btn-nav4', remote: true %>
+          <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-nav3 destroy_post_#{post.id}'%>
           <% end %>
         </div>
 

@@ -1,0 +1,4 @@
+$("textarea").val("");
+$("input").val("");
+$("#post-modal").modal("hide")
+$(".main").html("<%= escape_javascript(render 'posts/show') %>")

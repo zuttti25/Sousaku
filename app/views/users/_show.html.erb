@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+
+      <div class="row profile">
+         <%= render "users/profile" %>
+      </div>
+      <hr>
+
+
+      <div class="row my-5">
+        <div class="col">
+          <%= link_to "これまでの活動実績↓↓", mypost_path(@user), remote: true, class: 'btn btn-nav2' %>
+        </div>
+        <div class="col">
+          <%= link_to "興味のある活動↓↓", mylike_path(@user), remote: true, class: 'btn btn-nav2' %>
+        </div>
+      </div>
+
+
+
+
+     <% if @my_post.present? %>
+       <div class="my_area">
+        <%= render "users/mypost", my_post: @my_post %>
+       </div>
+     <% else %>
+       <div class="my_area">
+        <%= render "users/mylike" , my_like: @my_like %>
+      </div>
+     <% end %>
+
+
+
+
+    </div>
+  </div>
+</div>

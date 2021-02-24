@@ -1,11 +1,4 @@
 $("textarea").val("");
 $("input").val("");
 $("#board-modal").modal("hide")
-$(".boards").html("<%= escape_javascript(render 'board', boards: @boards) %>")
-
-
-//<% if @status == 'success' %>
-//$(".boards").append("<%= j(render("board", boards: @boards)) %>");
-//<%  elsif @status == 'fail' %>
-//alert('error!');
-//<% end %>
+$(".board").html("<%= escape_javascript(render 'boards/board', boards: @boards) %>")

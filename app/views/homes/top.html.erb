@@ -1,34 +1,36 @@
-       <div class="container">
+<div class="container">
+  
+  <div class="row">
+    <div class="board">
+      <%= render 'boards/board', boards: @boards %>
+    </div>
+  </div>
+      <%= paginate @boards, remote: true %>
 
-         <div class="row-auto">
+  <div class="row my-5">
+    <div class="col">
+      <%= link_to "人気の活動実績一覧↓↓", popular_path, remote: true, class: 'btn btn-nav2' %>
+    </div>
+    <div class="col">
+      <%= link_to "新着の活動実績↓↓", pickup_path, remote: true, class: 'btn btn-nav2' %>
+    </div>
+    <div class="col">
+      <%= link_to "話題のクリエイター↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
+    </div>
+  </div>
 
-
-           <div class="boards">
-             <%= render 'boards/board', boards: @boards %>
-           </div>
-
-           <h1 class="my-5">新着作品</h1>
-           <div class=" row">
-             <% @active_posts.each.with_index(1) do |post| %>
-             <div class="col-3">
-               <p>
-                 <%= link_to user_path(post.user) do %>
-                 <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
-                 <% end %>
-               </p>
-
-               <p>
-                 <%= link_to post_path(post.id) do %>
-                 <% post.title %>
-                 <% end %>
-               </p>
-
-               <p>クリエイター名：<%= post.user.name %></p>
-               <p> いいね数：<%= post.likes.count %></p>
-               <p> PV数：<%= post.impressions_count %></p>
-             </div>
-             <% end %>
-           </div>
-         </div>
-
-       </div>
+  <% if @popular.present? %>
+    <div class="top_area">
+      <%= render "posts/popular", popular: @popular %>
+    </div>
+  <% elsif  @pickup.present? %>
+    <div class="top_area">
+      <%= render "posts/pickup" , pickup: @pickup %>
+    </div>
+  <% else %>
+    <div class="top_area">
+      <%= render "users/index" , users: @users %>
+    </div>
+  <% end %>
+  
+</div>

@@ -2,49 +2,67 @@
   <nav class="navbar">
     <div class="container">
 
-      <%= link_to root_path do %>
-      <%= image_tag asset_path('logo.jpg'), class:"logo-img mr-2" %>
-      <% end %>
+  <h1>
+    <%= link_to "創索-sousaku-", root_path, class: "logo" %>
+  </h1>
+      <%= render "layouts/search_form" %>
 
-      <%= form_tag(search_path, :method => 'get') do %>
-      <%= select_tag(:option, options_for_select([["クリエイター", "1"],["投稿作品","2"],["タグ","3"],["掲示板","4"]]))%>
-      <%= text_field_tag :search %>
-      <%= submit_tag '検索する' %>
-      <% end %>
+  <% if user_signed_in? %>
 
-      <% if user_signed_in? %>
+    <div class="mouse">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt fa-3x icon"></i>
+        <% end %>
+       <span class="word">ログアウト</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to notifications_path, remote: true do %>
+          <i class="fas fa-bell fa-3x icon"></i>
+        <% end %>
+       <span class="word">通知</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to user_path(current_user), remote: true do %>
+          <i class="fas fa-user fa-3x icon"></i>
+        <% end %>
+       <span class="word">マイページ</span>
+    </div>
+    
+    
+    <div class="mouse">
+        <%= link_to new_post_path(@user), remote: true do %>
+          <i class="fas fa-file-signature fa-3x icon"></i>
+        <% end %>
+       <span class="word">新規投稿</span>
+    </div>
 
-      <%= link_to destroy_user_session_path, method: :delete do %>
-      <%= image_tag 'logout.jpg', :size =>'40x40' %>
-      <% end %>
+  <% else %>
+    
+    <div class="mouse">
+        <%= link_to  new_user_registration_path, remote: true do %>
+          <i class="fas fa-user-plus fa-3x icon"></i>
+        <% end  %>
+       <span class="word">新規登録</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to new_user_session_path, remote: true do %>
+          <i class="fas fa-sign-in-alt fa-3x icon"></i>
+        <% end  %>
+       <span class="word">ログイン</span>
+    </div>
+    
+    <div class="mouse">
+        <%= link_to users_guest_sign_in_path, method: :post do %>
+          <i class="fas fa-users fa-3x icon"></i>
+        <% end  %>
+       <span class="word">ゲストログイン</span>
+    </div>
 
-      <%= link_to notifications_path, remote: true do %>
-      <%= image_tag 'Bell.jpg', :size =>'40x40' %>
-      <% end %>
+  <% end %>
 
-      <%= link_to user_path(current_user) do %>
-      <%= image_tag 'Face.jpg', :size =>'40x40' %>
-      <% end %>
-
-      <%= link_to new_post_path(@user), remote: true do %>
-      <%= image_tag 'Pen.jpg', :size =>'40x40' %>
-      <% end %>
-
-      <% else %>
-
-      <%= link_to new_user_registration_path do %>
-      <%= image_tag 'sing_up.jpg', :size =>'40x40' %>
-      <% end %>
-
-      <%= link_to new_user_session_path do %>
-      <%= image_tag 'login.jpg', :size =>'40x40' %>
-      <% end %>
-
-      <%= link_to users_guest_sign_in_path, method: :post do %>
-      <%= image_tag 'Guest.jpg', :size =>'40x40' %>
-      <% end %>
-
-      <% end %>
     </div>
   </nav>
 </header>
