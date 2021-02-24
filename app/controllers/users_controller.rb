@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+     @users = User.limit(12).order("created_at DESC")
   end
 
   def show
