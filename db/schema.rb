@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_12_022537) do
+ActiveRecord::Schema.define(version: 2021_02_24_084241) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2021_02_12_022537) do
     t.datetime "updated_at", null: false
     t.string "link"
     t.integer "impressions_count", default: 0
+    t.string "skill"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

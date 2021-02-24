@@ -24,11 +24,16 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :product, "作品紹介" %>
+        <%= f.label :product, "活動内容" %>
         <%= f.text_area :product, class: "form-control" %>
        <%= render "layouts/error_messages", model: @post, attribute: :product %>
       </div>
-
+      
+      <div class="form-group">
+        <%= f.label :skill, "使用しているスキル" %>
+        <%= f.text_field :skill,class: "form-control" %>
+         <%= render "layouts/error_messages", model: @post, attribute: :skill %>
+      </div>
 
       <div class="form-group">
         <%= f.label :link, "リンク先" %>
