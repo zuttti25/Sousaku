@@ -5,14 +5,14 @@
 
   <h4>参加者</h4>
   <% @entries.each do |e| %>
-  <%= link_to user_path(e.user.id) do %>
+  <%= link_to user_path(e.user.id), remote: true do %>
   <%= e.user.name %>さん
   <% end %>
   <% end %>
 
   <hr>
 
-  <div class="room_message">
+  <div ="room_message">
     <%= render "rooms/message", messages: @messages %>
   </div>
 
@@ -24,7 +24,7 @@
   <%= f.submit "投稿する" %>
   <% end %>
 
-  <%= link_to "ユーザー詳細に戻る", user_path %>
+  <%= link_to "ユーザー詳細に戻る", user_path,remote: true %>
 
 
 </div>

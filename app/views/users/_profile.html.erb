@@ -5,23 +5,36 @@
               <h5> <%= @user.skill %> </h5>
             </div>
 
-          <div class="follow_count">
-            <%= render "relationships/follow_count" , user: @user %>
-          </div>
+          <h5>作業場所へのリンクはこちら↓↓</h5>
+            <% if @user.link.nil? %>
+            <div class="form-group">
+              <h5> <%= @user.link %> </h5>
+            </div>
+            <% else %>
+            <div class="form-group">
+              <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
+            </div>
+          <% end %>
+
         </div>
 
     <div class="col">
        <% if @user.image.nil? %>
         <div class ="profile_image">
-          <i class="far fa-smile"></i> 
+          <i class="far fa-smile"></i>
         </div>
        <% else %>
           <div class ="profile_image">
             <%= attachment_image_tag @user, :image, format: 'jpeg', size: "100x100", class: "rounded-circle" %>
           </div>
        <% end %>
-  
+
         <h3><%= @user.name %></h3>
+
+    
+          <div class="follow_count">
+            <%= render "relationships/follow_count" , user: @user %>
+          </div>
         
         <span>
           <div>
@@ -34,13 +47,21 @@
             <%= render 'relationships/follow_button', user: @user %>
           </div>
          </span>
-         
+
         <% if @user == current_user %>
+
           <span>
             <%= link_to edit_user_path(@user), remote: true do %>
               <i class="fas fa-user-cog"></i>
             <%  end %>
           </span>
+
+           <span>
+          <div>
+            <%= link_to "めっせーじなう", rooms_path(@user), remote: true %>
+          </div>
+         </span>
+
         <% end %>
     </div>
 
@@ -51,18 +72,5 @@
             <div class="form-group">
               <h5> <%= @user.introduction %> </h5>
             </div>
-
-          <h5>作業場所へのリンクはこちら↓↓</h5>
-            <% if @user.link.nil? %>
-            <div class="form-group">
-              <h5> <%= @user.link %> </h5>
-            </div>
-            <% else %>
-            <div class="form-group">
-              <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
-            </div>
-
-          <% end %>
-
 
         </div>

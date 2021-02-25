@@ -1,0 +1,13 @@
+# ◆ユーザー(11名)
+
+User.create!(name:"いぬ", email: "inu@gmail.com", password: "123456", image: File.open('./app/assets/images/inu.jpg'), introduction:"ワンッ（よろしくね）！",link:"https://www.min-inuzukan.com/", skill:"ワンワン！")
+User.create!(name:"スライム", email: "suraimu@gmail.com", password: "123456", image: File.open('./app/assets/images/suraimu.jpg'), introduction:"ドラ○エのマスコットを長年務めています。シンプルながらも洗練されたデザインが特徴的です！",link:"http://www.dragonquest.jp/", skill:"まれにマダンテも使えます")
+User.create!(name:"嫁の趣味", email: "disney@gmail.com", password: "123456", image: File.open('./app/assets/images/disney.jpg'), introduction:"嫁が大好きです。完全に嫁の趣味です。",link:"https://www.tokyodisneyresort.jp/", skill:"お年寄りから子供まで幅広く愛されます")
+User.create!(name:"氷と炎", email: "rokonn@gmail.com", password: "123456", image: File.open('./app/assets/images/rokonn.jpg'), introduction:"元々炎タイプでしたが、ガルラ地方では氷タイプになりました！",link:"https://www.pokemoncenter-online.com/", skill:"氷タイプの技が使えます！")
+User.create!(name:"100均のカレンダー", email: "calendar@gmail.com", password: "123456", image: File.open('./app/assets/images/calendar.jpg'), introduction:"100均で売っていそうなカレンダーです。",link:"https://ejje.weblio.jp/content/calendar", skill:"スケジュール管理能力に秀でています。")
+User.create!(name:"プログラミングバブ", email: "babu@gmail.com", password: "123456", image: File.open('./app/assets/images/babu.jpg'), introduction:"０歳ですがプラグラミングができます！",link:"https://railsguides.jp/getting_started.html", skill:"Ruby on rails/javascript/Python")
+User.create!(name:"officialちょびヒゲ", email: "hige@gmail.com", password: "123456", image: File.open('./app/assets/images/hige.png'), introduction:"officialなちょび髭です。",link:"https://higedan.com/", skill:"歌唱力に定評あり")
+User.create!(name:"ベジタリアン星人", email: "gokuu@gmail.com", password: "123456", image: File.open('./app/assets/images/gokuu.png'), introduction:"純血のサイヤ人です。天下一武道会に出場経験あり。",link:"https://dragonball.news/", skill:"かめはめ波/スーパーサイヤ人２〜５")
+User.create!(name:"大天聖☆ミカエル", email: "mahoutukai@gmail.com", password: "123456", image: File.open('./app/assets/images/mahoutukai.jpg'), introduction:"駆け出しの魔法使いです。",link:"https://magus-bride.jp/", skill:"炎/水属性の魔法全般")
+User.create!(name:"ピ◯チュー？？", email: "pikachu@gmail.com", password: "123456", image: File.open('./app/assets/images/pikachu.jpg'), introduction:"たまたま見つけました。めちゃくちゃ可愛いです。", link:"https://www.pokemoncenter-online.com/", skill:"電気タイプの技が使えます！")
+User.create!(name:"クレイジーピエロ", email: "piero@gmail.com", password: "123456", image: File.open('./app/assets/images/piero.jpg'), introduction:"クレイジーピエロです。生粋の道化師です。",link:"https://atelier-pierrot.shop-pro.jp/", skill:"玉乗りをしながらジャグリングができます！")

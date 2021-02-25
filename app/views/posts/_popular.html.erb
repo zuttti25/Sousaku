@@ -1,4 +1,16 @@
-<% @popular.each.with_index(1) do |post, i| %>
-    第<%= i %>位
-  <%= post.title %>
+<div class="row">
+  <% @popular.each.with_index(1) do |post, i| %>
+    <div class="col-4">
+      <p>
+        第<%= i %>位
+        <%= post.title %>
+      </p>
+      <p>
+        <%= post.product  %>
+      </p>
+      <p>
+        <%= post.skill  %>
+      </p>
+    </div>
   <% end %>
+</div>

@@ -4,32 +4,32 @@
     <hr>
 
     <div class="board_content">
-      <p class="text-center board_font">【タイトル】</p>
-      <p class="text-center"><%= @board.title %></p>
+      <h3>【タイトル】</h3>
+      <p><%= @board.title %></p>
     </div>
 
     <div class="board_content">
-      <p class="text-center board_font">【投稿者】</p>
+      <h3>【投稿者】</h3>
       <%= link_to user_path(@board.user), remote: true do %>
-       <p class="text-center" "btn btn-default" data-dismiss="modal">
+       <p data-dismiss="modal">
       <%= @board.user.name %>
       </p>
       <% end %>
     </div>
 
     <div class="board_content">
-      <p class="text-center board_font">【企画内容】</p>
-      <p class="my-5 mx-5"><%= simple_format @board.essential %></p>
+      <h3>【企画内容】</h3>
+      <p><%= simple_format @board.essential %></p>
     </div>
 
     <div class="board_content">
-      <p class="text-center board_font">【求める条件】</p>
-      <p class="text-center"><%= simple_format @board.requirement %></p>
+      <h3>【求める条件】</h3>
+      <p><%= simple_format @board.requirement %></p>
     </div>
 
     <div class="board_content">
-      <p class="text-center board_font">【連絡先】</p>
-      <p class="text-center"><%= @board.address %></p>
+      <h3>【連絡先】</h3>
+      <p><%= @board.address %></p>
     </div>
 
     <div class="modal-footer">
