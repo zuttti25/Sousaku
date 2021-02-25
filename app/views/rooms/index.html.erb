@@ -1,0 +1,11 @@
+<h2 class="text-center m-5">メッセージ中のクリエイター</h2>
+  <div class ="row">
+    <% @rooms.each do |room| %>
+      <div class="col-3">
+        <%= link_to room_path(room) do %>
+          <%= opponent_user(room) %>
+        <% end  %>
+          <%= most_new_message_preview(room) %>
+      </div>
+    <% end  %>
+  </div>

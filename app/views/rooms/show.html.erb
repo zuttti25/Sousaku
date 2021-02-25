@@ -5,7 +5,7 @@
 
   <h4>参加者</h4>
   <% @entries.each do |e| %>
-  <%= link_to user_path(e.user.id) do %>
+  <%= link_to user_path(e.user.id), remote: true do %>
   <%= e.user.name %>さん
   <% end %>
   <% end %>

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'
   get "/users/:id/relationships/followings", to: 'relationships#followers', as: 'followers'
-  resources :messages, only:  [:create]
+  resources :messages, only:  [:create, :destroy]
   resources :rooms, only: [:create, :show, :index]
   resources :notifications, only: [:index, :destroy]
   get "search" => "users#search"
