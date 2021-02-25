@@ -1,26 +1,13 @@
   <% users.each do |user| %>
   <tr>
-    <%= link_to user_path(user) do %>
-    <td><%= attachment_image_tag user, :image, format: 'jpeg', fallback: "no_image.png", size: "50x50", class: "rounded-circle" %></td>
+    <%= link_to user_path(user), remote: true do %>
+    <span data-dismiss="modal">
+      <td><%= attachment_image_tag user, :image, format: 'jpeg', fallback: "no_image.png", size: "50x50", class: "rounded-circle" %></td>
+    </span>
     <% end %>
     <td><%= user.name %></td>
     <td>フォロー数：<%= user.followings.count %></td>
     <td>フォロワー数：<%= user.followers.count %></td>
-    <td>
-      <% unless current_user == user %>
-      <% if current_user.following?(user) %>
-      <%= form_with model: current_user.relationships.find_by(follow_id: user.id), html: { method: :delete } do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォロー外す' %>
-      <% end %>
-      <% else %>
-      <%= form_with model: current_user.relationships.build do |f| %>
-      <%= hidden_field_tag :follow_id, user.id %>
-      <%= f.submit 'フォローする' %>
-      <% end %>
-      <% end %>
-      <% end %>
-    </td>
   </tr>
   <br>
   <% end %>
