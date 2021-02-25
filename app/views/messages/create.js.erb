@@ -1,2 +1,2 @@
-$(".room_message").html("<%= escape_javascript(render 'rooms/message', messages: @messages) %>")
-$("textarea").val("");
+$("input").val("");
+$('room_message').html("<%= escape_javascript(render 'rooms/message', messages: @messages) %>")

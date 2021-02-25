@@ -6,7 +6,7 @@ def new
 end
 
 
-  def create
+def create
     @post = Post.find(params[:post_id])
     #投稿に紐づいたコメントを作成
     @comment = @post.comments.build(comment_params)

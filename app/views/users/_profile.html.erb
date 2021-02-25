@@ -14,6 +14,7 @@
             <div class="form-group">
               <h5> <%= Rinku.auto_link(@user.link, :all, 'target="_blank"').html_safe %> </h5>
             </div>
+          <% end %>
 
         </div>
 
@@ -57,7 +58,7 @@
 
            <span>
           <div>
-            <%= link_to "めっせーじなう", rooms_path(@user) %>
+            <%= link_to "めっせーじなう", rooms_path(@user), remote: true %>
           </div>
          </span>
 
@@ -71,9 +72,5 @@
             <div class="form-group">
               <h5> <%= @user.introduction %> </h5>
             </div>
-
-
-          <% end %>
-
 
         </div>
