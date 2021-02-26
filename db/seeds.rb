@@ -1,5 +1,4 @@
 # ◆ユーザー(11名)
-
 User.create!(name:"いぬ", email: "inu@gmail.com", password: "123456", image: File.open('./app/assets/images/inu.jpg'), introduction:"ワンッ（よろしくね）！",link:"https://www.min-inuzukan.com/", skill:"ワンワン！")
 User.create!(name:"スライム", email: "suraimu@gmail.com", password: "123456", image: File.open('./app/assets/images/suraimu.jpg'), introduction:"ドラ○エのマスコットを長年務めています。シンプルながらも洗練されたデザインが特徴的です！",link:"http://www.dragonquest.jp/", skill:"まれにマダンテも使えます")
 User.create!(name:"嫁の趣味", email: "disney@gmail.com", password: "123456", image: File.open('./app/assets/images/disney.jpg'), introduction:"嫁が大好きです。完全に嫁の趣味です。",link:"https://www.tokyodisneyresort.jp/", skill:"お年寄りから子供まで幅広く愛されます")
