@@ -1,10 +1,10 @@
  <h2>作品詳細</h2>
-        
+
         <% if post.image.nil? %>
         <% else %>
           <%= attachment_image_tag post, :image, format: 'jpeg', size: "300x200", fallback:"no_image.post.jpg" %>
         <% end  %>
-        
+
         <div class="form-group">
           <h5>作品名 <p class="ml-5"><%= post.title %></p>
         </div>

@@ -16,6 +16,7 @@ has_many :tags, through: :tagmaps
   with_options presence: true do
 	  validates :title
 	  validates :product
+	  validates :skill
 	end
 
 
