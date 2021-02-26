@@ -6,7 +6,7 @@
         <% post.title %>
         <% end %>
       </p>
-        <i class="fas fa-heart"></i><%= post.likes.count %>
+        <i class="fas fa-heart like-btn"></i><%= post.likes.count %>
         <i class="far fa-eye"></i><%= post.impressions_count %>
       <p>クリエイター名：
         <%= link_to user_path(post.user), remote: true do %>

@@ -2,7 +2,7 @@
           <div class="form-group">
 
             <h2>所持SKILL</h2>
-              <h5> <%= @user.skill %> </h5>
+              <h5> <%= simple_format @user.skill %> </h5>
             </div>
 
           <h5>作業場所へのリンクはこちら↓↓</h5>
@@ -73,7 +73,7 @@
 
           <h2>自己紹介</h2>
             <div class="form-group">
-              <h5> <%= @user.introduction %> </h5>
+              <h5> <%= simple_format @user.introduction %> </h5>
             </div>
 
         </div>

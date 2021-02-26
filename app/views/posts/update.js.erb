@@ -1,0 +1,2 @@
+$("#post-edit-modal").modal("hide")
+$(".post-content").html("<%= escape_javascript(render 'posts/content', post: @post) %>")
