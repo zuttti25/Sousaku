@@ -1,17 +1,22 @@
-<% if user.id == current_user.id %>
-  <% else %>
+<% unless current_user == user %>
     <% if isRoom == true %>
-      <%= link_to room_path(roomId) do %>
-      <p><i class="far fa-envelope"></i></p>
-      <% end  %>
+      <div class="mouse">
+        <%= link_to room_path(roomId) do %>
+          <p><i class="far fa-envelope fa-2x"></i></p>
+        <% end  %>
+          <span class="word">メッセージ</span>
+      </div>
     <% else %>
       <%= form_with model: room do |f| %>
         <%= fields model: entry do |e| %>
           <%= e.hidden_field :user_id, :value=> user.id %>
         <% end %>
+      <div class="mouse">
         <%= button_tag :type => "submit", :class =>"btn btn-default btn-s-md" do %>
-          <p><i class="far fa-envelope"></i></p>
+          <p><i class="far fa-envelope fa-2x"></i></p>
         <% end %>
+        <span class="word">メッセージ</span>
+      </div>
       <% end %>
     <% end %>
 <% end %>

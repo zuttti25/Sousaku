@@ -3,14 +3,14 @@
     <div class="col-4">
       <p>
         <%= link_to post_path(post.id), remote: true do %>
-        <% post.title %>
+        <% post.title.truncate(20) %>
         <% end %>
       </p>
-        <i class="fas fa-heart"></i><%= post.likes.count %>
+        <i class="fas fa-heart like-btn"></i><%= post.likes.count %>
         <i class="far fa-eye"></i><%= post.impressions_count %>
       <p>クリエイター名：
         <%= link_to user_path(post.user), remote: true do %>
-        <%= post.user.name %>
+        <%= post.user.name.truncate(20) %>
         <% end %>
       </p>
     </div>

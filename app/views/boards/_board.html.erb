@@ -1,35 +1,38 @@
-<h1>仲間募集！
+<span>
+  <h1>仲間募集！</h1>
+</span>
   <% if user_signed_in? %>
-    <span class="mouse">
+<span>
+    <div class="mouse">
       <%= link_to new_board_path(current_user), remote: true do %>
-      <i class="fas fa-pen icon"></i>
+      <i class="fas fa-pen fa-2x"></i>
   <% end  %>
     <span class="word">記入する</span>
-    </span>
+    </div>
   <% end %>
-</h1>
- 
-      
+</span>
+
+
 <div class = "top_board">
   <% @boards.each do |board| %>
     <div class="boards">
-      
+
     <% if board.user == current_user %>
        <h3>タイトル
       <%= link_to edit_board_path(board), remote: true do %>
       <i class="far fa-edit"></i>
       <% end %>
-    
+
       <%= link_to board_path(board), method: :delete, data: { confirm: '本当に消しますか？' } do %>
       <i class="far fa-trash-alt"></i>
       <% end %>
-      
+
       <% else %>
       <h3>タイトル<h3>
     <% end %>
       </h3>
       <p><%= board.title %></p>
-      
+
       <h3>企画内容</h3>
       <p><%= board.essential.truncate(20) %></p>
       <%= link_to "詳 細 へ→→→", board_path(board), remote: true %>
@@ -39,4 +42,3 @@
     </div>
   <% end %>
 </div>
-    

@@ -11,6 +11,9 @@ class PostsController < ApplicationController
     #impressionist(@post, nil, unique: [:session_hash])
     # PV数を計る
     impressionist(@post, nil, unique: [:ip_address])
+   if params[:tag_id]
+    @tag = Tag.find(params[:tag_id])
+   end
   end
 
   def edit
@@ -50,12 +53,10 @@ class PostsController < ApplicationController
 
 
   def update
-    post = Post.find(params[:id])
+    @post = Post.find(params[:id])
     tag_list = params[:post][:tag_name].split(",")
-    if post.update(post_params)
-      post.save_posts(tag_list)
-      flash[:notice] = "更新しました。"
-      redirect_to post_path(post)
+    if @post.update(post_params)
+      @post.save_posts(tag_list)
     else
       render :edit
     end
@@ -66,7 +67,7 @@ class PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path
   end
-  
+
   def popular
     @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(12).pluck(:post_id))
   end
@@ -78,6 +79,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:image, :title, :product, :link).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :title, :product, :link, :skill).merge(user_id: current_user.id)
   end
 end

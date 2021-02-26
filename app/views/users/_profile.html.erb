@@ -2,7 +2,7 @@
           <div class="form-group">
 
             <h2>所持SKILL</h2>
-              <h5> <%= @user.skill %> </h5>
+              <h5> <%= simple_format @user.skill %> </h5>
             </div>
 
           <h5>作業場所へのリンクはこちら↓↓</h5>
@@ -31,11 +31,11 @@
 
         <h3><%= @user.name %></h3>
 
-    
+
           <div class="follow_count">
             <%= render "relationships/follow_count" , user: @user %>
           </div>
-        
+
         <span>
           <div>
             <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
@@ -50,17 +50,20 @@
 
         <% if @user == current_user %>
 
-          <span>
+        <span>
+          <div class="mouse">
             <%= link_to edit_user_path(@user), remote: true do %>
-              <i class="fas fa-user-cog"></i>
+              <i class="fas fa-user-cog fa-2x"></i>
             <%  end %>
-          </span>
-
-           <span>
-          <div>
-            <%= link_to "めっせーじなう", rooms_path(@user), remote: true %>
+            <span class="word">編集する</span>
           </div>
-         </span>
+        </span>
+
+        <span>
+          <div>
+            <%= link_to "めっせーじなう", rooms_path(@user), class: "btn btn-outline-success", remote: true %>
+          </div>
+        </span>
 
         <% end %>
     </div>
@@ -70,7 +73,7 @@
 
           <h2>自己紹介</h2>
             <div class="form-group">
-              <h5> <%= @user.introduction %> </h5>
+              <h5> <%= simple_format @user.introduction %> </h5>
             </div>
 
         </div>

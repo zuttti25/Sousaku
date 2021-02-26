@@ -4,13 +4,16 @@
       <p>
         第<%= i %>位
         <%= link_to post_path(post.id), remote: true do %>
-        <% post.title %>
+        <% post.title.truncate(20) %>
         <% end %>
       <p>
-        <%= post.product.truncate(20)  %>
+        内容:<%= post.product.truncate(20)  %>
       </p>
       <p>
-        <%= post.skill  %>
+        SKILL:<%= post.skill.truncate(20) %>
+      </p>
+      <p>
+        いいね件数:<%= post.likes.count %>
       </p>
     </div>
   <% end %>

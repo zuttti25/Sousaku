@@ -214,7 +214,8 @@ ja:
       title: タイトル
       essential: 募集要項
       requirement: 求める条件
-      product: 作品紹介
+      product: 活動内容
+      skill: スキル
   views:
     pagination:
       first: "&laquo; 最初"

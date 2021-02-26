@@ -1,64 +1,34 @@
     <div class="row">
-      <div class="col mt-5">
-        <%= attachment_image_tag post, :image, :fill, 300, 200, fallback:"no_image.post.jpg" %>
-      </div>
 
-      <div class="col">
-        <div class="form-group">
-          <h5>作品名 <p class="ml-5"><%= post.title %></p>
-        </div>
+      <div class="col-4">
+        <span>
+          <div id="like-btn-<%= post.id %>">
+            <%= render 'likes/like', post: post %>
+          </div>
+        </span>
 
-        <div class="form-group">
-          <h5>投稿者 <p class="ml-5">
-            <%= link_to user_path(post.user), remote: true do %>
-            <%= post.user.name %>
-            <% end  %>
-            </p>
-        </div>
-
-        <div class="form-group">
-          <h5>活動内容 <p class="ml-5"><%= post.product %></p>
-          </h5>
-        </div>
+        <span>
+          <div>
+            <i class="far fa-eye"></i><%=  post.impressionist_count %>
+          </div>
+        </span>
         
-         <div class="form-group">
-          <h5>使用しているスキル <p class="ml-5"><%= post.skill %></p>
-          </h5>
-        </div>
-
-
-        <div class="form-group">
-          <h5>
-            <% if post.link.nil? %>
-            <div class="form-group">
-              <h5> <%= post.link %> </h5>
-            </div>
-            <% else %>
-            <div class="form-group">
-              <h5> <%= Rinku.auto_link(post.link, :all, 'target="_blank"').html_safe %> </h5>
-            </div>
+        <div>
+          <% post.tags.each do |tag| %>
+            <i class="fas fa-tags"></i>
+            <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-warning" %>
           <% end %>
-         </div>
-
-        <div id="like-btn-<%= post.id %>">
-          <%= render 'likes/like', post: post %>
         </div>
+      
 
         <div id="comment-form-<%= post.id %>">
           <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
         </div>
 
-        <div>
-          PV数：<%=  post.impressionist_count %>
-        </div>
+      </div>
 
-
-        <div>
-          <% if post.user == current_user %>
-          <%= link_to "編集する", edit_post_path(post), class: 'btn btn-nav4', remote: true %>
-          <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-nav3 destroy_post_#{post.id}'%>
-          <% end %>
-        </div>
-
+      <div class="col-8 post-content">
+        <%= render 'posts/content', post: @post %>
+      </div>
 
       </div>

@@ -30,6 +30,11 @@
   width: 100%;
 }
 
+span {
+  display: inline-block;
+  margin-left: 20px;
+}
+
 
  header {
   background-color: rgba(255, 255, 255, 0);
@@ -112,17 +117,6 @@
     transition: background-color 1s, border-radius 2s;
  }
 
- .btn-nav6 {
-   background-color: #AA0000;
-   border-radius: 20px;
-   transition: background-color 0.5s, border-radius 1s;
- }
-
-.btn-nav6:hover {
-    background-color: #00FFFF;
-     border-radius: 0;
-   transition: background-color 1s, border-radius 2s;
- }
 
 //ここまでボタン
 
@@ -136,6 +130,7 @@ hr{
 .board_show{
   color: black;
 }
+
 
 //--------ここからメッセージ関連
 
@@ -233,8 +228,8 @@ hr{
   border-radius: 5px;
   background-color: #339933;
   width:100px;
-  top: 50px;
-  left: 0px;
+  top: 30px;
+  right: 3px;
   font-size: 12px;
   text-align: center;
 }
@@ -244,6 +239,26 @@ hr{
 .no_text{
   text-align: center;
   margin: 50px 0;
+}
+
+.like-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #FF3366;
+ }
+
+.unlike-btn {
+ width: 25px;
+ height: 30px;
+ font-size: 25px;
+ color: #FF3366;
+ }
+
+.post-content{
+  text-align: center;
+  overflow: scroll;
+  height: 100vh;
 }
 
     // フッター
