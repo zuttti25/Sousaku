@@ -7,9 +7,10 @@
       <% end %>
       <p><%= post.title %></p>
       <p>いいね件数: <%= post.likes.count %></p>
-      <p><%= link_to "#{post.comments.count} コメント", post_path(post.id) %></p>
+      <p><%= link_to "#{post.comments.count} コメント", post_path(post),remote: true %></p>
       <% post.tags.each do |tag| %>
-      <p><%= link_to tag.tag_name, posts_path(tag_id: tag.id) %></p>
+       <span><i class="fas fa-tags"></i></span>
+       <span><p><%= link_to tag.tag_name, posts_path(tag_id: tag.id) %></p></span>
       <% end %>
     </div>
    <% end %>
