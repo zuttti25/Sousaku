@@ -7,5 +7,8 @@ class HomesController < ApplicationController
       @boards = Board.page(params[:page]).per(4).order("created_at DESC")
     #@boards = Board.all
   end
+  
+  def about
+  end
 
 end
