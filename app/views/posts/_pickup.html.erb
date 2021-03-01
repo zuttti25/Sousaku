@@ -1,14 +1,18 @@
-<div class="row">
+<div class="top-memo">
   <% @pickup.each do |post| %>
-    <div class="col-4">
-      <p>
+    <div class="memox">
+      <h3>
         <%= link_to post_path(post.id), remote: true do %>
-        <% post.title.truncate(20) %>
+         <% post.title.truncate(20) %>
         <% end %>
-      </p>
+      </h3>
         <i class="fas fa-heart like-btn"></i><%= post.likes.count %>
         <i class="far fa-eye"></i><%= post.impressions_count %>
-      <p>クリエイター名：
+      <p>活動内容：
+        <%= post.product.truncate(30) %>
+      </p>
+
+      <p>By
         <%= link_to user_path(post.user), remote: true do %>
         <%= post.user.name.truncate(20) %>
         <% end %>
