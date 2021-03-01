@@ -49,75 +49,18 @@ span {
 //＿＿＿＿ここまでheader＿＿＿＿＿
 
 
-
-.btn-nav {
-  border: 2px solid #000;
-  border-radius: 30px;
-  background: #9ACD32;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-  margin-left: 20px;
- }
-
-.btn-nav:hover {
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: -4px -4px 0 #000;
- }
-
-
 .btn-nav2 {
-  border: 2px solid #000;
-  border-radius: 30px;
-  background: #00BFFF;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-  margin-left: 20px;
- }
-
+  color: #fff;
+  background-color: #3399FF;
+  border-bottom: 5px solid #3366CC;
+}
 .btn-nav2:hover {
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: -4px -4px 0 #000;;
- }
+  margin-top: 3px;
+  color: #fff;
+  background: #33CCFF;
+  border-bottom: 2px solid #3366CC;
+}
 
- .btn-nav3 {
-  border: 2px solid #000;
-  border-radius: 30px;
-  background: #DC143C;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-  margin-left: 20px;
- }
-
-.btn-nav3:hover {
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: -4px -4px 0 #000;;
- }
-
-.btn-nav4 {
-  border: 2px solid #000;
-  border-radius: 30px;
-  background: #228B22;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-  margin-left: 20px;
- }
-
-.btn-nav4:hover {
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: -4px -4px 0 #000;;
- }
-
- .btn-nav5 {
-   background-color: #00FFFF;
-   transition: background-color 0.5s, border-radius 1s;
-   color: whitesmoke;
- }
-
-.btn-nav5:hover {
-   background-color: #AA0000;
-    border-radius: 20px;
-    transition: background-color 1s, border-radius 2s;
- }
 
 
 //ここまでボタン
@@ -185,12 +128,12 @@ hr{
  position:relative;
  padding: 35px 20px 15px;
  margin: 2.5em auto;
- width: 90%;
+ width: 70% ;
  color: #555555; /* 文字色 */
  background-color: #e8ddbd;
  box-shadow: inset 0 0 40px rgba(204, 186, 136,1), 0 2px 2px #ccc;
- margin-left: 5px ;
- width: 90% ;
+ margin-left: auto ;
+ text-align: center;
 }
 .title-frame {
  position: absolute;
@@ -306,7 +249,7 @@ footer {
   position: absolute; /* .headerの左上を基準に絶対位置で指定する */
   top: 140px;
   right: -100px;
-  color: #339966;
+  color: #3399FF;
  }
 
 .fa-arrow-circle-left {
@@ -315,5 +258,10 @@ footer {
   position: absolute; /* .headerの左上を基準に絶対位置で指定する */
   top: 140px;
   left: -100px;
-  color: #339966;
+  color: #3399FF;
+ }
+
+ .top-button{
+  text-align: center;
+  margin: 50px;
  }

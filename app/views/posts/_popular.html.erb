@@ -2,27 +2,50 @@
   <% @popular.each.with_index(1) do |post, i| %>
     <div class="frame">
       <span class="title-frame">
-        <span><h3>No.<%= i %></h3></span>
+        <span><h3>第<%= i %>位</h3></span>
         <%= link_to post_path(post.id), remote: true do %>
         <% post.title %>
         <% end %>
       </span>
 
-      <p>
-        クリエイター名:
+
+
+      <span>
+        <span>
+          <h3>クリエイター名:</h3>
+        </span>
         <%= link_to user_path(post.user), remote: true do %>
         <%= post.user.name %>
+        <%= attachment_image_tag post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
         <% end %>
+      </span>
+
+
+      <p>
+        <h3>活動内容</h3>
+        <%= post.product  %>
       </p>
       <p>
-        活動内容:<%= post.product  %>
+        <h3>使用したSKILL</h3>
+        <%= post.skill %>
       </p>
-      <p>
-        使用したSKILL:<%= post.skill %>
-      </p>
-      <p>
+      <span>
         いいね件数:<%= post.likes.count %>
-      </p>
+      </span>
+
+       <span>
+          <% post.tags.each do |tag| %>
+            <i class="fas fa-tags"></i>
+            <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
+          <% end %>
+        </span>
+
+        <span>
+          <div>
+            <i class="far fa-eye"></i><%=  post.impressionist_count %>
+          </div>
+        </span>
+
     </div>
   <% end %>
 </div>
