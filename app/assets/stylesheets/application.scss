@@ -61,11 +61,7 @@ span {
   border-bottom: 2px solid #3366CC;
 }
 
-
-
 //ここまでボタン
-
-
 
 hr{
   background-color:gray;
@@ -107,16 +103,41 @@ hr{
 
 
 .boards{
-  border: 3px solid #82636b;
-  border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
-  margin: 2em 0;
-  padding: 2em;
-  color: black;
-  font-size: 20px;
-  background-color: #fff;
-  width: 75%;
-  margin-left: 5px;
+ position: relative;
+ border: 3px solid #82636b;
+ border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+ margin: 2em 0;
+ padding: 2em;
+ color: black;
+ font-size: 20px;
+ background-color: #fff;
+ width: 75%;
+ margin-left: 5px;
 }
+.boards::before {
+ position: absolute;
+ content: '';
+ top: -15px;
+ right: 10px;
+ height: 55px;
+ width: 15px;
+ border: 3px solid #555555; /*クリップ色 */
+ background-color: none;
+ border-radius: 12px;
+ box-shadow: 1px 1px 2px #999;
+ transform: rotate(10deg);
+ z-index: 1;
+}
+.boards::after {
+ position: absolute;
+ content: '';
+ top: 0px;
+ width: 10px;
+ right: 20px;
+ border: solid 5px #fff; /*背景色と同じ色にする*/
+ z-index: 2;
+}
+
 
 .board_content{
   text-align: center;
@@ -265,3 +286,72 @@ footer {
   text-align: center;
   margin: 50px;
  }
+
+
+/*.kakomi-tape {
+ text-align: center;
+ position: relative;
+ border: 3px solid #82636b;
+ border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
+ margin: 2em 0;
+ padding: 2em;
+ color: black;
+ font-size: 20px;
+ background-color: #fff;
+ width: 30%;
+ margin-left: 5px;
+}
+.kakomi-tape::before {
+ display: block;
+ position: absolute;
+ content: "";
+ width: 140px;
+ height: 35px;
+ left: 35%;
+ top: -16px;
+ background-color: rgba(204, 210, 180,0.3);
+ background-color: rgba(255,255,255,.4);
+ box-shadow: 0 0 3px rgba(0,0,0,0.1);
+ transform: rotate( -3deg );
+}*/
+.top-memo{
+ text-align: center;
+ display: flex;
+ flex-wrap: wrap;
+}
+
+.memox{
+  position:relative;
+  background:white;
+  width: 30%;
+  margin:2em 0;
+  padding:1.5em 1em;
+  transform: rotate(-2deg);
+  box-shadow:1px 1px 4px rgba(0,0,0,0.2);
+  color:#795548;
+  margin-left: 20px;
+}
+.memox::before{
+  position:relative;
+  display:inline-block;
+  border-bottom:3px solid #795548;
+  border-radius: 0 0 40% 5% / 0 0 15% 20%;
+  padding:0 1em 0.1em 0.2em;
+  font-weight:bold;
+  transform: rotate(-5deg);
+}
+.memox::after{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:-15px;
+  margin-left:-75px;
+  width:100px;
+  height:30px;
+  background:rgba(245,245,245,0.7);
+  box-shadow:1px 1px 4px rgba(0,0,0,0.2);
+  transform: rotate(-4deg);
+}
+.memox p{
+  margin-bottom:0.5em;
+}
