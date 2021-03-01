@@ -300,14 +300,20 @@ footer {
 
 
   //About
-.slick-next {
-    right: 10px !important;
+.fa-arrow-circle-right {
   z-index: 100;
-   color: #FF3366;
+  font-size: 100px;
+  position: absolute; /* .headerの左上を基準に絶対位置で指定する */
+  top: 140px;
+  right: -100px;
+  color: #339966;
  }
 
-.slick-prev {
-  left: 10px !important;
+.fa-arrow-circle-left {
   z-index: 100;
-   color: #FF3366;
+  font-size: 100px;
+  position: absolute; /* .headerの左上を基準に絶対位置で指定する */
+  top: 140px;
+  left: -100px;
+  color: #339966;
  }

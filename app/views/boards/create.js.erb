@@ -5,12 +5,14 @@ $(function() {
   $('#slider').slick({
       autoplay: true,
       autoplaySpeed: 4000,
-      slidesToShow: 4, //表示するスライドの数
-      slidesToScroll: 4, //スクロールで切り替わるスライドの数
+      slidesToShow: 4,
+      slidesToScroll: 4, 
+      nextArrow: '<i class="fas fa-arrow-circle-right"></i>',
+      prevArrow: '<i class="fas fa-arrow-circle-left"></i>',
 
       //レスポンシブ対応させたい場合は以下も記述
       responsive: [{
-        breakpoint: 768, //画面幅768pxで以下のセッティング
+        breakpoint: 768, 
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
