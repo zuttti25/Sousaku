@@ -14,7 +14,10 @@
 
 
 <div class = "top_board">
-  <% @boards.each do |board| %>
+
+
+<div id="slider">
+   <% @boards.each do |board| %>
     <div class="boards">
 
     <% if board.user == current_user %>
@@ -31,7 +34,7 @@
       <h3>タイトル<h3>
     <% end %>
       </h3>
-      <p><%= board.title %></p>
+      <p><%= board.title.truncate(7) %></p>
 
       <h3>企画内容</h3>
       <p><%= board.essential.truncate(20) %></p>
@@ -41,4 +44,6 @@
       </div>
     </div>
   <% end %>
+</div>
+
 </div>

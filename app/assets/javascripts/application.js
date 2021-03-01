@@ -15,5 +15,23 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
+$(function() {
+  $('#slider').slick({
+      autoplay: true,
+      autoplaySpeed: 4000,
+      slidesToShow: 4, //表示するスライドの数
+      slidesToScroll: 4, //スクロールで切り替わるスライドの数
+      nextArrow: '<i class="fas fa-arrow-circle-right"></i>',
+      prevArrow: '<i class="fas fa-arrow-circle-left"></i>',
+
+      //レスポンシブ対応させたい場合は以下も記述
+      responsive: [{
+        breakpoint: 768, //画面幅768pxで以下のセッティング
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }]
+  });
+});

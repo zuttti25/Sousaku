@@ -1,21 +1,21 @@
 <div class="container">
 
-  <div class="row">
+
     <div class="board">
       <%= render 'boards/board', boards: @boards %>
     </div>
-  </div>
-      <%= paginate @boards, remote: true %>
 
-  <div class="row my-5">
+      <%#= paginate @boards, remote: true %>
+
+  <div class="row top-button">
     <div class="col">
-      <%= link_to "人気の活動実績一覧↓↓", popular_path, remote: true, class: 'btn btn-nav' %>
+      <%= link_to "活動実績ランキング↓↓", popular_path, remote: true, class: 'btn btn-nav2' %>
     </div>
     <div class="col">
-      <%= link_to "新着の活動実績↓↓", pickup_path, remote: true, class: 'btn btn-nav' %>
+      <%= link_to "新着の活動実績↓↓", pickup_path, remote: true, class: 'btn btn-nav2' %>
     </div>
     <div class="col">
-      <%= link_to "話題のクリエイター↓↓", users_path, remote: true, class: 'btn btn-nav' %>
+      <%= link_to "話題のクリエイター↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
     </div>
   </div>
 
@@ -32,5 +32,6 @@
       <%= render "users/index" , users: @users %>
     </div>
   <% end %>
+
 
 </div>
