@@ -17,6 +17,12 @@
         <%= post.user.name.truncate(20) %>
         <% end %>
       </p>
+
+      <% post.tags.each do |tag| %>
+        <i class="fas fa-tags"></i>
+        <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
+      <% end %>
+
     </div>
   <% end %>
 </div>
