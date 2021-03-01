@@ -2,16 +2,23 @@
   <% @popular.each.with_index(1) do |post, i| %>
     <div class="frame">
       <span class="title-frame">
-        <span><h3>第<%= i %>位</h3></span>
+        <span><h3>No.<%= i %></h3></span>
         <%= link_to post_path(post.id), remote: true do %>
-        <% post.title.truncate(10) %>
+        <% post.title %>
         <% end %>
       </span>
-      
-        内容:<%= post.product.truncate(20)  %>
+
+      <p>
+        クリエイター名:
+        <%= link_to user_path(post.user), remote: true do %>
+        <%= post.user.name %>
+        <% end %>
       </p>
       <p>
-        SKILL:<%= post.skill.truncate(20) %>
+        活動内容:<%= post.product  %>
+      </p>
+      <p>
+        使用したSKILL:<%= post.skill %>
       </p>
       <p>
         いいね件数:<%= post.likes.count %>

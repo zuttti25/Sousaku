@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show, :index]
   resources :notifications, only: [:index, :destroy]
   get "search" => "users#search"
-  #get "top" => "homes#top"
   #root 'homes#about'
   root 'homes#top'
+  get "about" => "homes#about"
 end

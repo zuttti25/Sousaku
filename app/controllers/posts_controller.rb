@@ -69,7 +69,7 @@ class PostsController < ApplicationController
   end
 
   def popular
-    @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(12).pluck(:post_id))
+    @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
   end
 
   def pickup
