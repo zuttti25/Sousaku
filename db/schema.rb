@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_084241) do
+ActiveRecord::Schema.define(version: 2021_03_02_065832) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -158,6 +158,9 @@ ActiveRecord::Schema.define(version: 2021_02_24_084241) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "skill"
+    t.string "career"
+    t.string "award"
+    t.string "certificate"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
