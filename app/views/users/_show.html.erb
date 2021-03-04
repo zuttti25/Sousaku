@@ -23,7 +23,11 @@
 
 
 
-     <% if @my_post.present? %>
+     <% if @user.present? %>
+       <div class="my_area">
+        <%= render "users/myskill", user: @user %>
+       </div>
+     <% elsif @my_post.present? %>
        <div class="my_area">
         <%= render "users/mypost", my_post: @my_post %>
        </div>
@@ -31,10 +35,6 @@
        <div class="my_area">
         <%= render "users/mylike" , my_like: @my_like %>
       </div>
-     <% else %> 
-       <div class="my_area">
-        <%= render "users/myskill", my_skill: @my_skill %>
-       </div>
      <% end %>
 
 

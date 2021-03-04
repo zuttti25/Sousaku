@@ -70,7 +70,7 @@ class UsersController < ApplicationController
   protected
 
   def user_params
-    params.require(:user).permit(:image, :name, :introduction, :skill, :link)
+    params.require(:user).permit(:image, :name, :introduction, :skill, :link, :award, :career, :certificate)
   end
 
 end
