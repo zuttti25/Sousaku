@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_02_065832) do
+ActiveRecord::Schema.define(version: 2021_03_06_034602) do
 
   create_table "boards", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -113,6 +113,14 @@ ActiveRecord::Schema.define(version: 2021_03_02_065832) do
     t.integer "impressions_count", default: 0
     t.string "skill"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "to_user_id", null: false
+    t.integer "from_user_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "relationships", force: :cascade do |t|

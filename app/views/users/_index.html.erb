@@ -4,11 +4,16 @@
     <ul>
       <% @users.each do |user| %>
         <li data-user_id="<%= user.id %>">
-          <div class="userName"><%= user.name %></div>
-          <div class="userName"><%= user.skill %></div>
-          <div class="userName"><%= user. %></div>
+          <div class="userName">
+            <p><%= user.name %></p>
+            <p><%= user.skill %></p>
+            <p><%= user.career %></p>
+            <p><%= user.certificate %></p>
+            <p><%= user.award %></p>
+          </div>
+
           <%#= image_tag user.image %>
-          <%= attachment_image_tag user, :image, format: 'jpeg', size: "500x500", class: "rounded-circle" %>
+          <%= attachment_image_tag user, :image, format: 'jpeg', size: "300x300", class: "rounded-circle" %>
 
           <div class="like"></div>
           <div class="dislike"></div>
@@ -22,10 +27,59 @@
       <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
   </div>
 </div>
+
 <script>
-  $("#tinderslide").jTinder();
-  $('.actions .like, .actions .dislike').click(function(e){
-  	e.preventDefault();
-  	$("#tinderslide").jTinder($(this).attr('class'));
+  // スワイプするユーザー数の定数を定義
+  var usersNum = <%= @users.length %>
+  var currentUserIndex = 0;
+  var postReaction = function (user_id, reaction) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+        }
+    });
+    $.ajax({
+      type: "POST",
+      url: "<%= reactions_path %>",
+      data: {
+        user_id: user_id,
+        reaction: reaction,
+      },
+      success: function(j_data){
+        console.log("success")
+      }
+    });
+  }
+  $("#tinderslide").jTinder({
+    onDislike: function (item) {
+      currentUserIndex++;
+      checkUserNum();
+      var user_id = item[0].dataset.user_id
+      postReaction(user_id, 'dislike')
+    },
+    onLike: function (item) {
+      currentUserIndex++;
+      checkUserNum();
+      var user_id = item[0].dataset.user_id
+      postReaction(user_id, 'like')
+    },
+    animationRevertSpeed: 200,
+    animationSpeed: 400,
+    threshold: 1,
+    likeSelector: '.like',
+    dislikeSelector: '.dislike'
   });
+  $('.actions .like, .actions .dislike').click(function(e){
+    e.preventDefault();
+    $("#tinderslide").jTinder($(this).attr('class'));
+  });
+
+  function checkUserNum() {
+    // スワイプするユーザー数とスワイプした回数が同じになればaddClassする
+    if (currentUserIndex === usersNum){
+      $(".noUser").addClass("is-active");
+      $("#actionBtnArea").addClass("is-none")
+      return;
+    }
+  }
 </script>

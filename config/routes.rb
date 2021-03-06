@@ -34,4 +34,6 @@ Rails.application.routes.draw do
   #root 'homes#about'
   root 'homes#top'
   get "about" => "homes#about"
+  resources :reactions, only: [:create]
+  resources :matching, only: [:index]
 end
