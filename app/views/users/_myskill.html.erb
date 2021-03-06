@@ -1,0 +1,44 @@
+
+<div class="skills">
+  <h2 class="skill-title">
+    スキル
+  </h2>
+    <% if user.skill.empty? %>
+      <p>ーーーーー</p>
+    <% else %>
+      <p><%= user.skill %></p>
+    <% end %>
+</div>
+
+<div class="skills">
+  <h2 class="skill-title">
+    資格
+  </h2>
+    <% if user.certificate.empty? %>
+      <p>ーーーーー</p>
+    <% else %>
+      <p><%= user.certificate %></p>
+    <% end %>
+</div>
+
+<div class="skills">
+  <h2 class="skill-title">
+    経歴
+  </h2>
+    <% if user.career.empty? %>
+     <p>ーーーーー</p>
+    <% else %>
+      <p><%= user.career %></p>
+    <% end %>
+  </div>
+
+<div class="skills">
+  <h2 class="skill-title">
+    受賞歴
+  </h2>
+    <% if user.award.empty? %>
+      <p>ーーーーー</p>
+    <% else %>
+      <p><%= user.award %></p>
+    <% end %>
+</div>

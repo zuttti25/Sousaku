@@ -49,7 +49,7 @@ class UsersController < ApplicationController
       @posts = Post.search(params[:search],  @searchs)
     elsif @searchs == "3"
       @tags = Tag.search(params[:search],  @searchs)
-    else @searchs == "4"
+    elsif @searchs == "4"
       @boards = Board.search(params[:search],  @searchs)
     end
   end
@@ -64,10 +64,14 @@ class UsersController < ApplicationController
     @my_like = Like.where(user_id: @user.id)
   end
 
+   def myskill
+    @user = User.find(params[:id])
+   end
+
   protected
 
   def user_params
-    params.require(:user).permit(:image, :name, :introduction, :skill, :link)
+    params.require(:user).permit(:image, :name, :introduction, :skill, :link, :award, :career, :certificate)
   end
 
 end
