@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   end
 
   def index
-     @users = User.limit(12).order("created_at DESC")
+     #@users = User.limit(12).order("created_at DESC")
+     @users = User.where.not(id: current_user.id)
   end
 
   def show
