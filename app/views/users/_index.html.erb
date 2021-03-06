@@ -1,6 +1,8 @@
 <div class="topPage">
 
   <div id="tinderslide">
+    
+    
     <ul>
       <% @users.each do |user| %>
         <li data-user_id="<%= user.id %>">
@@ -26,6 +28,7 @@
       <a href="#" class="dislike"><i class="fas fa-times fa-2x"></i></a>
       <a href="#" class="like"><i class="fas fa-heart fa-2x"></i></a>
   </div>
+    <h1 class ="text-center">←長押しでスワイプできます→</h1>
 </div>
 
 <script>

@@ -2,7 +2,7 @@
   <div class ="row">
     <% @rooms.each do |room| %>
       <div class="col-3">
-        <%= link_to room_path(room) do %>
+        <%= link_to chat_path(room) do %>
           <%= opponent_user(room) %>
         <% end  %>
           <%= most_new_message_preview(room) %>

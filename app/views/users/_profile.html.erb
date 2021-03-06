@@ -1,4 +1,4 @@
-<div class="col-4">
+<div class="col-5">
        <% if @user.image.nil? %>
         <div class ="profile_image">
           <i class="far fa-smile"></i>
@@ -18,7 +18,12 @@
 
         <span>
           <div>
-            <%= render 'rooms/room_button', user: @user, isRoom: @isRoom,  roomId: @roomId, room: @room, entry: @entry %>
+            <% unless current_user == @user %>
+              <%= form_tag :chat_index, method: :post do %>
+                <input name="user_id" type="hidden" value="<%= @user.id %>" />
+                <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
+              <% end %>
+            <% end  %>
           </div>
         </span>
 
@@ -30,26 +35,36 @@
 
         <% if @user == current_user %>
 
+         <span>
+           <div class="mouse">
+            <%= link_to  rooms_path(@user), remote: true do %>
+              <i class="far fa-envelope fa-2x"></i>
+            <% end %>
+            <span class="word">メッセージ中</span>
+          </div>
+        </span>
+
+        <span>
+          <div class="mouse">
+          　<%= link_to(content_tag(:i, "", class: 'fas fa-2x fa-comments'), matching_index_path) %>
+          　<span class="word">マッチング一覧</span>
+          </div>
+        </span>
+
         <span>
           <div class="mouse">
             <%= link_to edit_user_path(@user), remote: true do %>
               <i class="fas fa-user-cog fa-2x"></i>
-            <%  end %>
+            <% end %>
             <span class="word">編集する</span>
           </div>
         </span>
-
-        <span>
-          <div>
-            <%= link_to "めっせーじなう", rooms_path(@user), class: "btn btn-outline-success", remote: true %>
-          </div>
-        </span>
-
-        <% end %>
-    </div>
+        
+       <% end %>
+</div>
 
 
-<div class="col-8">
+<div class="col-7">
 
   <h2>自己紹介</h2>
     <div class="form-group">

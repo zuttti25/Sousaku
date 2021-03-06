@@ -36,4 +36,5 @@ Rails.application.routes.draw do
   get "about" => "homes#about"
   resources :reactions, only: [:create]
   resources :matching, only: [:index]
+  resources :chat, only:[:create, :show]
 end

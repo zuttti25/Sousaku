@@ -13,7 +13,7 @@ html, body {
 
 #tinderslide {
     position: relative;
-    background: #fff;
+    background: whitesmoke;
     width: 90vw;
     height: 70vh;
     max-width: 600px;
@@ -114,7 +114,7 @@ html, body {
     position: absolute;
     width: 170px;
     left: 45px;
-    top:40px;
+    top: 40px;
     z-index: 1;
     overflow: hidden;
     -webkit-transform: translate3d(0%,0,0) scale3d(1,1,1);
@@ -206,44 +206,4 @@ html, body {
     font-family: arial;
     margin-top: 30px;
     font-weight: bold;
-}
-
-.topPage {
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    max-width: 610px;
-    margin: 0 auto;
-    & > ul {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 10px;
-      & > li {
-        list-style: none;
-        &.personIcon {
-          i {
-            color:#dccbcb;
-          }
-        }
-        &.appIcon {
-          & > a {
-            width: 40px;
-            display: inline-block;
-            & > img {
-              width: 100%;
-            }
-          }
-        }
-        &.messageIcon {
-           i {
-             color: #dccbcb;
-           }
-        }
-      }
-    }
-  }
 }
