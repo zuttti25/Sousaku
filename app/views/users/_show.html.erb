@@ -15,16 +15,23 @@
         <div class="col">
           <%= link_to "興味のある活動↓↓", mylike_path(@user), remote: true, class: 'btn btn-nav2' %>
         </div>
+        <div class="col">
+          <%= link_to "私のSKILLセット↓↓", myskill_path(@user), remote: true, class: 'btn btn-nav2' %>
+        </div>
       </div>
 
 
 
 
-     <% if @my_post.present? %>
+     <% if @user.present? %>
+       <div class="my_area">
+        <%= render "users/myskill", user: @user %>
+       </div>
+     <% elsif @my_post.present? %>
        <div class="my_area">
         <%= render "users/mypost", my_post: @my_post %>
        </div>
-     <% else %>
+     <% elsif @my_like.present? %>
        <div class="my_area">
         <%= render "users/mylike" , my_like: @my_like %>
       </div>

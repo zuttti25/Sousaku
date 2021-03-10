@@ -1,4 +1,4 @@
-<div class="modal-dialog" role="document">
+<div class="modal-dialog modal-lg">
   <div class="modal-content">
 
     <div class="modal-header">
@@ -28,8 +28,23 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :スキル, class:"col-form-label" %>
+        <%= f.label :所持しているスキル, class:"col-form-label" %>
         <%= f.text_field :skill, class:"form-control" %>
+      </div>
+
+       <div class="form-group">
+        <%= f.label :資格など, class:"col-form-label" %>
+        <%= f.text_field :certificate, class:"form-control" %>
+      </div>
+
+       <div class="form-group">
+        <%= f.label :経歴など, class:"col-form-label" %>
+        <%= f.text_field :career, class:"form-control" %>
+      </div>
+
+       <div class="form-group">
+        <%= f.label :受賞歴など, class:"col-form-label" %>
+        <%= f.text_field :award, class:"form-control" %>
       </div>
 
       <div class="form-group">

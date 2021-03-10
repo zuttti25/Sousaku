@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   resources :boards
   get "/users/:id/mypost", to: 'users#mypost', as: 'mypost'
   get "/users/:id/mylike", to: 'users#mylike', as: 'mylike'
+  get "/users/:id/myskill", to: 'users#myskill', as: 'myskill'
   resources :users, only: [:index, :show, :edit, :update]
   resources :relationships, only: [:create, :destroy]
   get "/users/:id/relationships/followers", to: 'relationships#followings', as: 'followings'
@@ -33,4 +34,7 @@ Rails.application.routes.draw do
   #root 'homes#about'
   root 'homes#top'
   get "about" => "homes#about"
+  resources :reactions, only: [:create]
+  resources :matching, only: [:index]
+  resources :chat, only:[:create, :show]
 end
