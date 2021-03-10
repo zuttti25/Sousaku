@@ -53,23 +53,6 @@
           border: 10px solid transparent;
           border-right: 10px solid #f1f1f1;
         }
-        &.selfMessage {
-          margin: 1.5em 15px 1.5em 0;
-          padding: 7px 10px;
-          max-width: 100%;
-          color: #555;
-          font-size: 16px;
-          background: #e0edff;
-          &:before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 100%;
-            margin-top: -10px;
-            border: 10px solid transparent;
-            border-left: 10px solid #e0edff;
-          }
-        }
       }
     }
   }
