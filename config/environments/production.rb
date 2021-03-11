@@ -48,8 +48,8 @@ Rails.application.configure do
   # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
   #config.action_cable.url = 'ws://Elastic IP/cable'
-  #ActionCable.server.config.disable_request_forgery_protection = true
-  config.action_cable.allowed_request_origins = [ 'http://13.113.78.156', /http:\/\/13.113.78.156.*/ ] 
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.allowed_request_origins = [ 'http://13.113.78.156', /http:\/\/13.113.78.156.*/ ]
 
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
