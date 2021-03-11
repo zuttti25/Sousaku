@@ -1,21 +1,10 @@
 <div class="message">
 
-  <% if message.user == current_user %>
-    <span><%= message.user.name %>:</span>
-    <div class="commonMessage">
-      <div>
-        <%= message.message %>
-      </div>
+  <span><%= message.user.name %>:</span>
+  <div class="commonMessage">
+    <div>
+      <%= message.message %>
     </div>
-  <% end %>
-
-  <% if message.user != current_user %>
-    <span><%= message.user.name %>:</span>
-    <div class="commonMessage">
-      <div>
-        <%= message.message %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 
 </div>
