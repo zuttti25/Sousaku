@@ -1,11 +1,11 @@
 <h2 class="text-center m-5">メッセージ中のクリエイター</h2>
   <div class ="row">
-    <% @rooms.each do |room| %>
-      <div class="col-3">
-        <%= link_to chat_path(room) do %>
-          <%= opponent_user(room) %>
-        <% end  %>
-          <%= most_new_message_preview(room) %>
-      </div>
-    <% end  %>
+  <% @anotherEntries.each do |room| %>
+    <div class="col-3 text-center">
+      <%= link_to chat_path(room.room.id) do %>
+        <%= room.user.name %><br>
+      <% end %>
+      <%= Message.find_by(id: room.room.message_ids.last).message %>
+    </div>
+  <% end %>
   </div>
