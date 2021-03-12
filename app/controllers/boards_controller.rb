@@ -25,8 +25,8 @@ class BoardsController < ApplicationController
 
     def update
       board = Board.find(params[:id])
+      @boards = Board.all.order("created_at DESC")
       if board.update(board_params)
-        redirect_to root_path
         flash[:notice] = "更新しました。"
       else
         render :edit
