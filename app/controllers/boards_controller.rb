@@ -16,18 +16,15 @@ class BoardsController < ApplicationController
        @board = Board.new(board_params)
       if @board.save
          @boards = Board.all.order("created_at DESC")
-         #@boards = Board.page(params[:page]).per(4).order("created_at DESC")
       else
         render :new
       end
     end
 
-
     def update
       board = Board.find(params[:id])
       @boards = Board.all.order("created_at DESC")
       if board.update(board_params)
-        flash[:notice] = "更新しました。"
       else
         render :edit
       end
