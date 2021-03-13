@@ -11,6 +11,10 @@
       <p>活動内容：
         <%= post.product.truncate(30) %>
       </p>
+      
+      <p>使用SKILL：
+        <%= post.skill.truncate(30) %>
+      </p>
 
       <p>By
         <%= link_to user_path(post.user), remote: true do %>
