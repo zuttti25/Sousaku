@@ -1,13 +1,20 @@
 <div class="container">
 
-
-
+  <h1 class ="mb-5">人気のタグ</h1>
+  <div class="row">
+    <% @tags.each do |list| %>
+    <div class="col-auto">
+      <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
+        <%= list.tag_name %>(<%= list.posts.count %>)
+        <% end %>
+      </p>
+    </div>
+    <% end %>
+  </div>
 
     <div class="board">
       <%= render 'boards/board', boards: @boards %>
     </div>
-
-      <%#= paginate @boards, remote: true %>
 
   <div class="row top-button">
     <div class="col">
@@ -17,7 +24,7 @@
       <%= link_to "新着の活動実績↓↓", pickup_path, remote: true, class: 'btn btn-nav2' %>
     </div>
     <div class="col">
-      <%= link_to "マッチングスワイプ↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
+      <%= link_to "ランダムマッチング↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
     </div>
   </div>
 
@@ -25,7 +32,7 @@
     <div class="top_area">
       <%= render "posts/popular", popular: @popular %>
     </div>
-  <% elsif  @pickup.present? %>
+  <% elsif @pickup.present? %>
     <div class="top_area">
       <%= render "posts/pickup" , pickup: @pickup %>
     </div>

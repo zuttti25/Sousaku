@@ -1,6 +1,5 @@
 <div class="message">
-
-  <span><%= message.user.name %>:</span>
+ <%= attachment_image_tag message.user, :image, format: 'jpeg', size: "50x50", class: "rounded-circle", fallback: "no_image.png" %>
   <div class="commonMessage">
     <div>
       <%= message.message %>

@@ -4,8 +4,8 @@
 
     <% @tag_list.each do |list| %>
     <div class="col-auto">
-      <p><%= link_to posts_path(tag_id:list.id), class: "btn btn-secondary" do %>
-        <%= list.tag_name %><%= list.posts.count %>
+      <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
+        <%= list.tag_name %>(<%= list.posts.count %>)
         <% end %>
       </p>
     </div>
@@ -28,7 +28,7 @@
       <p>活動内容：
         <%= post.product.truncate(30) %>
       </p>
-    
+
       <p>使用SKILL：
         <%= post.skill.truncate(30) %>
       </p>
@@ -38,7 +38,7 @@
         <%= post.user.name.truncate(20) %>
         <% end %>
       </p>
-      
+
 
       <% post.tags.each do |tag| %>
         <i class="fas fa-tags"></i>

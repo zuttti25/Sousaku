@@ -1,13 +1,7 @@
 <div class="col-5">
-       <% if @user.image.nil? %>
-        <div class ="profile_image">
-          <i class="far fa-smile"></i>
-        </div>
-       <% else %>
           <div class ="profile_image">
-            <%= attachment_image_tag @user, :image, format: 'jpeg', size: "100x100", class: "rounded-circle" %>
+            <%= attachment_image_tag @user, :image, format: 'jpeg', size: "100x100", class: "rounded-circle", fallback: "no_image.png" %>
           </div>
-       <% end %>
 
         <h3><%= @user.name %></h3>
 
@@ -21,7 +15,7 @@
             <% unless current_user == @user %>
               <%= form_tag :chat_index, method: :post do %>
                 <input name="user_id" type="hidden" value="<%= @user.id %>" />
-                <%= submit_tag 'チャットを開く', class: "chatForm_btn" %>
+                <%= submit_tag 'チャットを開く', class: 'btn btn-outline-info' %>
               <% end %>
             <% end  %>
           </div>
@@ -59,7 +53,7 @@
             <span class="word">編集する</span>
           </div>
         </span>
-        
+
        <% end %>
 </div>
 

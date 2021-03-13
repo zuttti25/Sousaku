@@ -20,8 +20,6 @@
  @import "matching";
  @import "chat";
 
-
-
  body {
   font-family: 'Yusei Magic', sans-serif;
   padding-top: 170px;
@@ -29,6 +27,9 @@
   margin-left: auto;
   background-color: whitesmoke;
   width: 100%;
+  word-break:break-all;
+  word-wrap:break-word;
+  text-align: center;
 }
 
 span {
@@ -224,8 +225,8 @@ hr{
 //-----マウスのカーソルを合わせると文字が浮きでる
 
 .no_text{
-  text-align: center;
   margin: 50px 0;
+  height: 250px;
 }
 
 .like-btn {
@@ -241,26 +242,6 @@ hr{
  font-size: 25px;
  color: #FF3366;
  }
-
-.post-content{
-  text-align: center;
-  overflow: scroll;
-  height: 100vh;
-}
-
-
-
-    // フッター
-footer {
-  width: 100%;
-  height: 100px;
-  background: rgba(232, 228, 220, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top: 1px dashed #ffb300
-  }
-
 
   //About
 .fa-arrow-circle-right {
@@ -286,33 +267,6 @@ footer {
   margin: 50px;
  }
 
-
-/*.kakomi-tape {
- text-align: center;
- position: relative;
- border: 3px solid #82636b;
- border-radius: 240px 15px 185px 15px / 15px 200px 15px 185px;
- margin: 2em 0;
- padding: 2em;
- color: black;
- font-size: 20px;
- background-color: #fff;
- width: 30%;
- margin-left: 5px;
-}
-.kakomi-tape::before {
- display: block;
- position: absolute;
- content: "";
- width: 140px;
- height: 35px;
- left: 35%;
- top: -16px;
- background-color: rgba(204, 210, 180,0.3);
- background-color: rgba(255,255,255,.4);
- box-shadow: 0 0 3px rgba(0,0,0,0.1);
- transform: rotate( -3deg );
-}*/
 .top-memo{
  text-align: center;
  display: flex;
@@ -355,9 +309,6 @@ footer {
   margin-bottom:0.5em;
 }
 
-
-
-
 .skills {
     position: relative;
     margin: 2em 0;
@@ -368,7 +319,6 @@ footer {
     margin-right: auto;
     margin-left: auto;
     text-align: center;
-
 }
 
 .skills .skill-title {
@@ -393,3 +343,14 @@ footer {
     margin: 10px;
     padding: 10px;
 }
+
+    // フッター
+footer {
+  width: 100%;
+  height: 100px;
+  background: rgba(232, 228, 220, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px dashed #ffb300
+  }

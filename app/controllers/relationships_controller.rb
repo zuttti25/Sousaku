@@ -4,7 +4,6 @@
       @user = User.find(params[:follow_id])
       following = current_user.follow(@user)
         following.save
-        flash[:success] = 'ユーザーをフォローしました'
         @user.create_notification_follow!(current_user)
     end
     
@@ -12,7 +11,6 @@
       @user = User.find(params[:follow_id])
       following = current_user.unfollow(@user)
         following.destroy
-        flash[:success] = 'ユーザーのフォローを解除しました'
     end
 
     def followings

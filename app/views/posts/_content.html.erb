@@ -1,50 +1,65 @@
- <h2>作品詳細</h2>
+<div class = "row">
+  <div class ="col-6">
 
-        <% if post.image.nil? %>
+
+    <%= attachment_image_tag post, :image, format: 'jpeg', size: "300x200", fallback: "no_image.post.jpg" %>
+
+    <h3><%= post.title %></h3>
+
+    <h5>By
+      <%= link_to user_path(post.user), remote: true do %>
+        <%= post.user.name %>
+      <% end  %>
+    </h5>
+
+    <span>
+      <div id="like-btn-<%= post.id %>">
+        <%= render 'likes/like', post: post %>
+      </div>
+    </span>
+
+    <span>
+      <div>
+        <i class="far fa-eye"></i><%=  post.impressionist_count %>
+      </div>
+    </span>
+
+    <span>
+      <% post.tags.each do |tag| %>
+        <i class="fas fa-tags"></i>
+        <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-warning" %>
+      <% end %>
+    </span>
+
+    <div>
+      <% if post.user == current_user %>
+        <%= link_to "編集する", edit_post_path(post), class:"btn btn-success", remote: true %>
+        <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger destroy_post_#{post.id}" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-6">
+
+    <h3>活動内容↓↓</h3>
+      <div class="form-group">
+        <p><%= simple_format post.product %></p>
+      </div>
+
+    <h3>使用しているスキル↓↓</h3>
+      <div class="form-group">
+        <p><%= simple_format post.skill %></p>
+      </div>
+
+    <h3>リンク↓↓</h3>
+      <div class="form-group">
+        <% if post.link.nil? %>
+          <p><%= post.link %></p>
         <% else %>
-          <%= attachment_image_tag post, :image, format: 'jpeg', size: "300x200", fallback:"no_image.post.jpg" %>
-        <% end  %>
+          <p><%= Rinku.auto_link(post.link, :all, 'target="_blank"').html_safe %> </p>
+        <% end %>
+      </div>
 
-        <div class="form-group">
-          <h5>作品名 <p class="ml-5"><%= post.title %></p>
-        </div>
+  </div>
 
-        <div class="form-group">
-          <h5>投稿者 <p class="ml-5">
-            <%= link_to user_path(post.user), remote: true do %>
-            <%= post.user.name %>
-            <% end  %>
-            </p>
-        </div>
-
-        <div class="form-group">
-          <h5>活動内容 <p class="ml-5"><%= simple_format post.product %></p>
-          </h5>
-        </div>
-
-         <div class="form-group">
-          <h5>使用しているスキル <p class="ml-5"><%= simple_format post.skill %></p>
-          </h5>
-        </div>
-
-
-        <div class="form-group">
-          <h5>リンク↓↓
-            <% if post.link.nil? %>
-            <div class="form-group">
-              <h5> <%= post.link %> </h5>
-            </div>
-            <% else %>
-            <div class="form-group">
-              <h5> <%= Rinku.auto_link(post.link, :all, 'target="_blank"').html_safe %> </h5>
-            </div>
-          <% end %>
-         </div>
-
-
-        <div>
-          <% if post.user == current_user %>
-          <%= link_to "編集する", edit_post_path(post), class: 'btn btn-nav4', remote: true %>
-          <%= link_to "削除する", post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'btn btn-nav3 destroy_post_#{post.id}'%>
-          <% end %>
-        </div>
+</div>
