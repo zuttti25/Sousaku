@@ -71,9 +71,11 @@
     <small>の検索結果</small>
   </h1>
   <div class="row">
-    <% @tags.each do |tag| %>
+    <% @tags.each do |list| %>
     <div class="col-auto">
-      <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
+      <%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
+        <%= list.tag_name %>(<%= list.posts.count %>)
+      <% end %>
     </div>
     <% end %>
 
