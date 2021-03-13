@@ -6,7 +6,8 @@ class UsersController < ApplicationController
 
   def index
      #@users = User.limit(12).order("created_at DESC")
-     @users = User.where.not(id: current_user.id).order("RANDOM()")
+     #@users = User.where.not(id: current_user.id).order("RANDOM()")
+     @users = User.where.not(id: current_user.id).order("RAND()")
   end
 
   def show
