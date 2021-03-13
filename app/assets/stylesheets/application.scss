@@ -20,8 +20,6 @@
  @import "matching";
  @import "chat";
 
-
-
  body {
   font-family: 'Yusei Magic', sans-serif;
   padding-top: 170px;
@@ -29,6 +27,7 @@
   margin-left: auto;
   background-color: whitesmoke;
   width: 100%;
+  
   word-break:break-all;
   word-wrap:break-word;
   text-align: center;
@@ -246,7 +245,11 @@ hr{
  }
 
 .post-content{
-  text-align: center;
+  overflow: scroll;
+  height: 100vh;
+}
+
+.post-comment{
   overflow: scroll;
   height: 100vh;
 }
