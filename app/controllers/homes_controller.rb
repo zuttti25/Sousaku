@@ -2,7 +2,8 @@ class HomesController < ApplicationController
 
   def top
      #開発環境はsqlight　の　order("RANDOM()")
-      @users = User.all.order("RANDOM()").limit(5)
+      @users = User.all
+      #.order("RANDOM()").limit(5)
       #本番環境はmysqlになるので
       #@users = User.all.order("RAND()").limit(5)
 
