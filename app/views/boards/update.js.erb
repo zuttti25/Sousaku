@@ -1,4 +1,5 @@
 $("#board-edit-modal").modal("hide")
+$("#board-show-modal").modal("hide")
 $(".board").html("<%= escape_javascript(render 'boards/board', boards: @boards) %>")
 $(function() {
   $('#slider').slick({

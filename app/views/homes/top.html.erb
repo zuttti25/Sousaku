@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1 class ="my-5 text-center">人気のタグ</h1>
+  <h1 class ="mb-5">人気のタグ</h1>
   <div class="row">
     <% @tags.each do |list| %>
     <div class="col-auto">
@@ -24,7 +24,7 @@
       <%= link_to "新着の活動実績↓↓", pickup_path, remote: true, class: 'btn btn-nav2' %>
     </div>
     <div class="col">
-      <%= link_to "マッチングスワイプ↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
+      <%= link_to "ランダムマッチング↓↓", users_path, remote: true, class: 'btn btn-nav2' %>
     </div>
   </div>
 

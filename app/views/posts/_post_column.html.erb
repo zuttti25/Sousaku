@@ -1,12 +1,9 @@
-    <div class="row">
-
-      <div class="col-6 post-content">
+      <div class="post-content">
         <%= render 'posts/content', post: @post %>
       </div>
 
-      <div class="col-6 post-comment">
-        <div id="comment-form-<%= post.id %>">
-          <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
-        </div>
+    <hr>
+
+      <div id="comment-form-<%= post.id %>">
+        <%= render 'comments/comment', post: @post, comment: @comment, user: @user %>
       </div>
-    </div>
