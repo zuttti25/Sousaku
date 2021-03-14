@@ -1,0 +1,20 @@
+$(".main").html("<%= escape_javascript(render 'users/search', searchs: @searchs, users: @users, posts: @posts, tags: @tags, boards: @boards) %>")
+$(function() {
+  $('#slider').slick({
+      autoplay: true,
+      autoplaySpeed: 4000,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      nextArrow: '<i class="fas fa-arrow-circle-right"></i>',
+      prevArrow: '<i class="fas fa-arrow-circle-left"></i>',
+
+      //レスポンシブ対応させたい場合は以下も記述
+      responsive: [{
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }]
+  });
+});

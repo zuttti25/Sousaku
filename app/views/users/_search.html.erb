@@ -39,15 +39,17 @@
             </h3>
             <i class="fas fa-heart like-btn"></i><%= post.likes.count %>
             <i class="far fa-eye"></i><%= post.impressions_count %>
+            <span><%= link_to "#{post.comments.count} コメント", post_path(post),remote: true %></span>
             <p>活動内容：
               <%= post.product.truncate(30) %>
             </p>
             <p>使用SKILL：
               <%= post.skill.truncate(30) %>
             </p>
-            <p>By
+            <p>
               <%= link_to user_path(post.user), remote: true do %>
-              <%= post.user.name.truncate(20) %>
+                <%= attachment_image_tag post.user, :image, format: 'jpg', size: "30x30", fallback: "no_image.png", class: "rounded-circle" %>
+                <%= post.user.name %>
               <% end %>
             </p>
             <% post.tags.each do |tag| %>
@@ -73,7 +75,7 @@
   <div class="row">
     <% @tags.each do |list| %>
     <div class="col-auto">
-      <%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
+      <%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info', remote: true do %>
         <%= list.tag_name %>(<%= list.posts.count %>)
       <% end %>
     </div>

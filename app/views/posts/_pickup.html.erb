@@ -11,7 +11,7 @@
       <p>活動内容：
         <%= post.product.truncate(30) %>
       </p>
-      
+
       <p>使用SKILL：
         <%= post.skill.truncate(30) %>
       </p>
@@ -24,7 +24,7 @@
 
       <% post.tags.each do |tag| %>
         <i class="fas fa-tags"></i>
-        <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
+        <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary",remote: true %>
       <% end %>
 
     </div>

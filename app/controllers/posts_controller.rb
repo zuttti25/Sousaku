@@ -34,10 +34,6 @@ class PostsController < ApplicationController
       @posts_side = Post.order(created_at: "DESC")
       @like = Like.new
     end
-      respond_to do |format|
-        format.html
-        format.rss { render :layout => false }
-      end
   end
 
 

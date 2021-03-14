@@ -1,15 +1,17 @@
 <div class="container">
 
-  <h1 class ="mb-5">人気のタグ</h1>
+<div class="top-tag">
+  <h1 class ="mb-5">注目のタグ</h1>
   <div class="row">
     <% @tags.each do |list| %>
-    <div class="col-auto">
-      <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
-        <%= list.tag_name %>(<%= list.posts.count %>)
-        <% end %>
-      </p>
+      <div class="col-auto">
+        <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info', remote: true do %>
+          <%= list.tag_name %>(<%= list.posts.count %>)
+          <% end %>
+        </p>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 
     <div class="board">
