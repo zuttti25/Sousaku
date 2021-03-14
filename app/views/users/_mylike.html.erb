@@ -1,24 +1,34 @@
-<div class="row">
+<div class="top-memo">
   <% if my_like.exists? %>
-   <% my_like.each do |like| %>
-    <div class="col-3">
+    <% my_like.each do |like| %>
+      <div class="memox">
+      <h3>
+        <%= link_to post_path(like.post), remote: true do %>
+          <%= like.post.title %>
+        <% end %>
+      </h3>
 
-    <div class ="profile_image">
-       <%= link_to user_path(like.post.user), remote: true do %>
-         <%= attachment_image_tag like.post.user, :image, format: 'jpg', size: "50x50", fallback:"no_image.png", class: "rounded-circle" %>
-       <% end %>
-    </div>
+      <p>活動内容：<%= like.post.product.truncate(30) %></p>
 
-      <%= link_to post_path(like.post), remote: true do %>
-        <p><%= like.post.title %></p>
-      <% end %>
+       <p>使用SKILL：<%= like.post.skill.truncate(30) %></p>
 
-      <p>いいね件数: <%= like.post.likes.count %></p>
-      <p><%= link_to "#{like.post.comments.count} コメント", post_path(like.post),remote: true %></p>
+      <i class="fas fa-heart like-btn"></i><%= like.post.likes.count %>
+      <i class="far fa-eye"></i><%= like.post.impressions_count %>
+      <span><%= link_to "#{like.post.comments.count} コメント", post_path(like.post),remote: true %></span>
+      <br>
+
+        <div class ="profile_image">
+          <%= link_to user_path(like.post.user), remote: true do %>
+            <%= attachment_image_tag like.post.user, :image, format: 'jpg', size: "45x45", fallback: "no_image.png", class: "rounded-circle" %>
+            <%= like.post.user.name %>
+          <% end %>
+        </div>
+
       <% like.post.tags.each do |tag| %>
       <span><i class="fas fa-tags"></i></span>
-      <span><p><%= link_to tag.tag_name, posts_path(tag_id: tag.id) %></p></span>
+      <span><%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %></span>
       <% end %>
+
     </div>
    <% end %>
   <% else %>
