@@ -29,11 +29,18 @@
   width: 100%;
   word-break:break-all;
   word-wrap:break-word;
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
 }
 
 span {
   display: inline-block;
   margin-left: 20px;
+}
+
+.main {
+  flex: 1;
 }
 
 

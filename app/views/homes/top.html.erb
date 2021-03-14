@@ -5,7 +5,7 @@
   <div class="row">
     <% @tags.each do |list| %>
       <div class="col-auto">
-        <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info' do %>
+        <p><%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info', remote: true do %>
           <%= list.tag_name %>(<%= list.posts.count %>)
           <% end %>
         </p>

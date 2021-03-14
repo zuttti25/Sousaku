@@ -22,7 +22,7 @@
 
         <% post.tags.each do |tag| %>
           <i class="fas fa-tags"></i>
-          <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
+          <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary", remote: true %>
         <% end %>
       </div>
     <% end %>
