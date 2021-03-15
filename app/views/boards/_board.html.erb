@@ -37,7 +37,7 @@
       <p><%= board.title.truncate(25) %></p>
 
       <h3>企画内容</h3>
-      <p><%= board.essential.truncate(20) %></p>
+      <p><%= board.essential.truncate(10) %></p>
       <%= link_to "詳 細 へ→→→", board_path(board), remote: true %>
       <div class="mt-3">
         by <%= board.user.name %>

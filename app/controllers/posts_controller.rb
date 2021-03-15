@@ -18,28 +18,19 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @tag_list = @post.tags.pluck(:tag_name).join(",")
+    @tag_list = @post.tags.pluck(:tag_name).join("　")
   end
 
   def index
-    if params[:tag_id]
       @tag_list = Tag.all
       @tag = Tag.find(params[:tag_id])
-      @posts = @tag.posts.order(created_at: "DESC").page(params[:page]).per(10)
-      @posts_side = Post.order(created_at: "DESC")
-      @like = Like.new
-    else
-      @tag_list = Tag.all
-      @posts = Post.order(created_at: "DESC").page(params[:page]).per(10)
-      @posts_side = Post.order(created_at: "DESC")
-      @like = Like.new
-    end
+      @posts = @tag.posts.order(created_at: "DESC")
   end
 
 
   def create
     @post = Post.new(post_params)
-    tag_list = params[:post][:tag_name].split(",")
+    tag_list = params[:post][:tag_name].split("　")
       if @post.save
       @post.save_posts(tag_list)
       else
@@ -50,7 +41,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    tag_list = params[:post][:tag_name].split(",")
+    tag_list = params[:post][:tag_name].split("　")
     if @post.update(post_params)
       @post.save_posts(tag_list)
     else

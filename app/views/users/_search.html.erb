@@ -52,8 +52,8 @@
                 <%= post.user.name %>
               <% end %>
             </p>
-            <% post.tags.each do |tag| %>
               <i class="fas fa-tags"></i>
+            <% post.tags.each do |tag| %>
               <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary" %>
             <% end %>
           </div>
@@ -75,9 +75,11 @@
   <div class="row">
     <% @tags.each do |list| %>
     <div class="col-auto">
+      <p>
       <%= link_to posts_path(tag_id: list.id), class: 'btn btn-outline-info', remote: true do %>
         <%= list.tag_name %>(<%= list.posts.count %>)
       <% end %>
+      </p>
     </div>
     <% end %>
 

@@ -24,8 +24,8 @@
           <% end %>
         </div>
 
-      <% like.post.tags.each do |tag| %>
       <span><i class="fas fa-tags"></i></span>
+      <% like.post.tags.each do |tag| %>
       <span><%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary", remote: true %></span>
       <% end %>
 

@@ -41,8 +41,8 @@
       </div>
 
       <div class="form-group">
-        <%= f.label :tag, "タグ" %>
-        <%= f.text_field :tag_name, value: @tag_list, class: "form-control", placeholder: "スペースを空けると一つのタグとして登録されます" %>
+        <%= f.label :tag, "タグ" %>※最大３つまで
+        <%= f.text_field :tag_name, value: @tag_list, class: "form-control", placeholder: "全角スペースを空けると複数のタグとして登録されます" %>
       </div>
 
     </div>
