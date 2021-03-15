@@ -20,8 +20,8 @@
           <%= post.skill.truncate(30) %>
         </p>
 
-        <% post.tags.each do |tag| %>
           <i class="fas fa-tags"></i>
+        <% post.tags.each do |tag| %>
           <%= link_to tag.tag_name, posts_path(tag_id: tag.id), class: "btn btn-outline-secondary", remote: true %>
         <% end %>
       </div>

@@ -9,7 +9,7 @@ class HomesController < ApplicationController
       @pickup = Post.limit(12).order("created_at DESC")
       @popular = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
       @boards = Board.all.order("created_at DESC")
-      @tags = Tag.all.limit(30)
+      @tags = Tag.all.limit(32).order("created_at DESC")
 
   end
 
