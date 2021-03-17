@@ -36,16 +36,6 @@
   <%= render 'layouts/header' %>
 
   <main class="main">
-  <% if flash[:notice] %>
-  <div class="notification is-info">
-    <p class="notice"><%= notice %></p>
-  </div>
-  <% end %>
-  <% if flash[:alert] %>
-  <div class="notification is-info">
-    <p class="alert"><%= alert %></p>
-  </div>
-  <% end %>
     <%= yield %>
   </main>
 
