@@ -34,6 +34,7 @@
 - 他分野のクリエイターと交流したい時
 
 ##インフラ構成図
+
 <img width="1079" alt="スクリーンショット 2021-03-24 23 17 49" src="https://user-images.githubusercontent.com/71240694/112325767-4fe2b380-8cf7-11eb-8aba-c7e42c70c4d4.png">
 
 
