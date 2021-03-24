@@ -21,13 +21,13 @@ class User < ApplicationRecord
   #通知機能のアソシエーション
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
-  
+
   with_options presence: true do
 	  validates :email
 	  validates :encrypted_password
 	  validates :name
 	end
-  
+
   def self.guest
     find_or_create_by!(email: 'guest@example.com', name:'ゲストさん') do |user|
       user.password = SecureRandom.urlsafe_base64
