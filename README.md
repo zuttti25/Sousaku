@@ -38,7 +38,7 @@ https://sousaku.work/
 
 ## インフラ構成図
 
-<img width="1079" alt="スクリーンショット 2021-03-24 23 17 49" src="https://user-images.githubusercontent.com/71240694/112325767-4fe2b380-8cf7-11eb-8aba-c7e42c70c4d4.png">
+<img width="1079" alt="スクリーンショット 2021-03-25 10 23 08" src="https://user-images.githubusercontent.com/71240694/112404736-3de32e00-8d54-11eb-90d5-880ff99278da.png">
 
 
 ## チャレンジ要素一覧
