@@ -49,4 +49,4 @@ https://docs.google.com/spreadsheets/d/1YVOesRalRX8yRoAnk8zsS9gfVQ-HTW9jo3IPnnxH
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,postgresql
 - フレームワーク：Ruby on Rails
-- IDE：Dockcr/docker-compose
+- IDE：cloud9
