@@ -47,6 +47,6 @@ https://docs.google.com/spreadsheets/d/1YVOesRalRX8yRoAnk8zsS9gfVQ-HTW9jo3IPnnxH
 
 ## 開発環境
 - OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,postgresql
+- 言語：HTML,CSS,JavaScript,Ruby,
 - フレームワーク：Ruby on Rails
 - IDE：cloud9
